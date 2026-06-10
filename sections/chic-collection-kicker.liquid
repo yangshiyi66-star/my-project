@@ -1,0 +1,74 @@
+<section class="chic-collection-kicker color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <p class="chic-eyebrow">Browse by shape, length, and finish</p>
+    <div class="chic-grid chic-grid--4">
+      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
+        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
+        <strong>Short</strong>
+      </a>
+      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
+        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
+        <strong>Almond</strong>
+      </a>
+      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
+        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
+        <strong>Square</strong>
+      </a>
+      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
+        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
+        <strong>Chrome</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .chic-collection-kicker {
+    padding: 3.2rem 0 1.2rem;
+  }
+
+  .chic-collection-kicker__tile {
+    display: grid;
+    gap: 0.8rem;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .chic-collection-kicker__tile .chic-placeholder {
+    min-height: 14rem;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+  }
+
+  .chic-collection-kicker__tile strong {
+	    padding-bottom: 1.2rem;
+	    color: var(--chic-ink);
+	    font-size: 1.2rem;
+	    font-weight: var(--chic-ui-weight);
+	    letter-spacing: 0.12em;
+	    text-transform: uppercase;
+	  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Chic collection kicker",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Chic collection kicker"
+    }
+  ]
+}
+{% endschema %}

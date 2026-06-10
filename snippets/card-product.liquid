@@ -44,7 +44,7 @@
     <div
       class="
         card card--{{ settings.card_style }}
-        {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
+        card--media
         {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
         {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
         {% if extend_height %} card--extend-height{% endif %}
@@ -103,6 +103,22 @@
                   height="{{ card_product.media[1].height }}"
                 >
               {%- endif -%}
+            </div>
+          </div>
+        {%- else -%}
+          <div class="card__media chic-card-fallback-media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+            <div class="media media--transparent media--hover-effect">
+              <img
+                src="{{ 'chic-nail-placeholder.svg' | asset_url }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ card_product.title | escape }}"
+                class="motion-reduce"
+                {% unless lazy_load == false %}
+                  loading="lazy"
+                {% endunless %}
+                width="1200"
+                height="1200"
+              >
             </div>
           </div>
         {%- endif -%}

@@ -90,6 +90,9 @@
                     {%- if block.settings.menu != blank -%}
                       <ul class="footer-block__details-content list-unstyled">
                         {%- for link in block.settings.menu.links -%}
+                          {%- if link.title == '系列' -%}
+                            {%- continue -%}
+                          {%- endif -%}
                           <li>
                             <a
                               href="{{ link.url }}"

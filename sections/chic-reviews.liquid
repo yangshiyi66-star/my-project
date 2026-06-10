@@ -1,0 +1,207 @@
+<section class="chic-reviews color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="chic-reviews__head">
+      <h2 class="chic-section-title">{{ section.settings.heading | escape }}</h2>
+      {% if section.settings.review_link != blank %}
+        <a class="chic-reviews__write" href="{{ section.settings.review_link }}">{{ section.settings.review_link_label | escape }}</a>
+      {% endif %}
+    </div>
+
+    <chic-reviews-carousel class="chic-reviews__viewport">
+      <button type="button" class="chic-reviews__arrow chic-reviews__arrow--prev" data-dir="-1" aria-label="Previous">&#8249;</button>
+      <div class="chic-reviews__row" data-track>
+        {% for block in section.blocks %}
+          <article class="chic-review chic-card" {{ block.shopify_attributes }}>
+            <div class="chic-review__media">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name | escape }}" loading="lazy" width="600" height="760">
+              {% else %}
+                {%- assign imgnum = forloop.index0 | modulo: 5 | plus: 1 -%}
+                {%- assign fallback = 'chic-review-' | append: imgnum | append: '.jpg' -%}
+                <img src="{{ fallback | asset_url }}" alt="{{ block.settings.name | escape }}" loading="lazy" width="600" height="760">
+              {% endif %}
+              <span class="chic-review__avatar" aria-hidden="true">{{ block.settings.name | slice: 0, 1 | upcase }}</span>
+            </div>
+            <div class="chic-review__body">
+              <strong class="chic-review__name">{{ block.settings.name | escape }}</strong>
+              {% if block.settings.date != blank %}<span class="chic-review__date">{{ block.settings.date | escape }}</span>{% endif %}
+              <p class="chic-review__quote">{{ block.settings.quote | escape }}</p>
+              <div class="chic-review__stars" aria-label="{{ block.settings.rating }} / 5">
+                {% for i in (1..5) %}{% if i <= block.settings.rating %}★{% else %}<span class="is-empty">★</span>{% endif %}{% endfor %}
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+      <button type="button" class="chic-reviews__arrow chic-reviews__arrow--next" data-dir="1" aria-label="Next">&#8250;</button>
+    </chic-reviews-carousel>
+  </div>
+</section>
+
+{% stylesheet %}
+  .chic-reviews { padding: 5.6rem 0; }
+
+  .chic-reviews__head {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3.2rem;
+  }
+
+  .chic-reviews__head .chic-section-title {
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .chic-reviews__write {
+    position: absolute;
+    right: 0;
+    bottom: 0.4rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    color: var(--chic-muted);
+  }
+
+  .chic-reviews__viewport {
+    position: relative;
+    display: block;
+  }
+
+  .chic-reviews__row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 3 * 1.6rem) / 4);
+    gap: 1.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 0.6rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .chic-reviews__row::-webkit-scrollbar { display: none; }
+
+  @media screen and (max-width: 989px) {
+    .chic-reviews__row { grid-auto-columns: calc((100% - 1.6rem) / 2); }
+  }
+  @media screen and (max-width: 749px) {
+    .chic-reviews__row { grid-auto-columns: 78%; }
+  }
+
+  .chic-review {
+    scroll-snap-align: start;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chic-review__media { position: relative; aspect-ratio: 3 / 4; background: var(--chic-cream); }
+  .chic-review__media > img,
+  .chic-review__media .chic-placeholder,
+  .chic-review__media .chic-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+  .chic-review__avatar {
+    position: absolute; left: 50%; bottom: -2rem; transform: translateX(-50%);
+    width: 4rem; height: 4rem; border-radius: 50%; background: #fff; color: var(--chic-ink);
+    display: grid; place-items: center; font-weight: var(--chic-ui-weight);
+    box-shadow: 0 2px 10px rgba(26, 26, 26, 0.14);
+  }
+
+  .chic-review__body { padding: 3rem 1.8rem 2.2rem; text-align: center; display: grid; gap: 0.5rem; }
+  .chic-review__name { font-weight: var(--chic-ui-weight); letter-spacing: 0.04em; }
+  .chic-review__date { color: var(--chic-muted); font-size: 1.1rem; }
+  .chic-review__quote { margin: 0.6rem 0; color: var(--chic-ink); font-size: 1.3rem; line-height: 1.5; }
+  .chic-review__stars { color: var(--chic-ink); letter-spacing: 0.2em; font-size: 1.3rem; }
+  .chic-review__stars .is-empty { opacity: 0.22; }
+
+  .chic-reviews__arrow {
+    position: absolute;
+    top: 38%;
+    z-index: 2;
+    width: 4rem; height: 4rem;
+    display: grid; place-items: center;
+    background: #fff;
+    border: 1px solid var(--chic-border);
+    border-radius: 50%;
+    font-size: 2rem; line-height: 1;
+    color: var(--chic-ink);
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(26, 26, 26, 0.12);
+  }
+  .chic-reviews__arrow--prev { left: -1.2rem; }
+  .chic-reviews__arrow--next { right: -1.2rem; }
+  .chic-reviews__arrow[disabled] { opacity: 0.3; cursor: default; }
+
+  @media screen and (max-width: 749px) {
+    .chic-reviews__arrow { display: none; }
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    class ChicReviewsCarousel extends HTMLElement {
+      connectedCallback() {
+        this.track = this.querySelector('[data-track]');
+        this.querySelectorAll('.chic-reviews__arrow').forEach((btn) =>
+          btn.addEventListener('click', () => this.scrollByDir(parseInt(btn.dataset.dir, 10)))
+        );
+        this.track.addEventListener('scroll', () => this.update(), { passive: true });
+        this.update();
+      }
+      step() {
+        var card = this.track.querySelector('.chic-review');
+        return card ? card.getBoundingClientRect().width + 16 : 300;
+      }
+      scrollByDir(dir) {
+        this.track.scrollBy({ left: dir * this.step(), behavior: 'smooth' });
+      }
+      update() {
+        var prev = this.querySelector('.chic-reviews__arrow--prev');
+        var next = this.querySelector('.chic-reviews__arrow--next');
+        var max = this.track.scrollWidth - this.track.clientWidth - 2;
+        if (prev) prev.toggleAttribute('disabled', this.track.scrollLeft <= 2);
+        if (next) next.toggleAttribute('disabled', this.track.scrollLeft >= max);
+      }
+    }
+    if (!customElements.get('chic-reviews-carousel')) customElements.define('chic-reviews-carousel', ChicReviewsCarousel);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Chic reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "OUR REVIEWS" },
+    { "type": "text", "id": "review_link_label", "label": "Write-review label", "default": "Write a review" },
+    { "type": "url", "id": "review_link", "label": "Write-review link (needs a reviews app/page)" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Customer photo" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Customer" },
+        { "type": "text", "id": "date", "label": "Date" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Love these nails!" },
+        { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Chic reviews",
+      "blocks": [
+        { "type": "review", "settings": { "name": "Ashley R.", "date": "2026/1/19", "quote": "[DEMO] I love how these look! So natural and easy to apply.", "rating": 5 } },
+        { "type": "review", "settings": { "name": "Mia T.", "date": "2026/1/9", "quote": "[DEMO] One of my favorite sets ever. Subtle, cute, and trendy.", "rating": 5 } },
+        { "type": "review", "settings": { "name": "Sophia L.", "date": "2025/12/28", "quote": "[DEMO] So cool and unique! I have never seen nails like this before.", "rating": 5 } },
+        { "type": "review", "settings": { "name": "Tiana W.", "date": "2025/10/21", "quote": "[DEMO] I LOVE these nails. Made my birthday outfit even more special!", "rating": 5 } },
+        { "type": "review", "settings": { "name": "Karin M.", "date": "2025/6/21", "quote": "[DEMO] Love these nails! High quality, no bending or cracking.", "rating": 5 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -74,9 +74,21 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col grid--2-col-tablet{% if product.media.size == 0 %} chic-product--fallback-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+        {%- if product.media.size > 0 -%}
+          {% render 'product-media-gallery', variant_images: variant_images %}
+        {%- else -%}
+          <div class="chic-product-fallback-media">
+            <img
+              src="{{ 'chic-nail-placeholder.svg' | asset_url }}"
+              alt="{{ product.title | escape }}"
+              width="1200"
+              height="1200"
+              loading="eager"
+            >
+          </div>
+        {%- endif -%}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -113,6 +125,10 @@
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
+                </div>
+                <div class="chic-product-reviews" aria-label="5 stars, 52 reviews">
+                  <span aria-hidden="true">★★★★★</span>
+                  <a href="#chic-product-details">52 Reviews</a>
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
@@ -485,6 +501,25 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+                <p class="chic-product-payline">Pay over time for orders over <strong>$35.00</strong> with Shop Pay. <a href="/pages/faq">Learn more</a></p>
+                <div class="chic-product-perks" aria-label="Product benefits">
+                  <details open>
+                    <summary><span>◷</span><strong>10 Minute Application</strong></summary>
+                    <p>Designed for a quick at-home manicure.</p>
+                  </details>
+                  <details>
+                    <summary><span>▦</span><strong>Up to 2 Weeks Wear</strong></summary>
+                    <p>Glue application can support longer wear with proper prep.</p>
+                  </details>
+                  <details>
+                    <summary><span>◠</span><strong>Salon Quality</strong></summary>
+                    <p>Polished finish and comfortable daily wear.</p>
+                  </details>
+                  <details>
+                    <summary><span>✦</span><strong>Certified by Leaping Bunny</strong></summary>
+                    <p>Placeholder claim area; replace with final compliance copy.</p>
+                  </details>
+                </div>
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">

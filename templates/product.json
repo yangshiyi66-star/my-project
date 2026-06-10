@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -11,7 +20,8 @@
           }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {}
         },
         "caption": {
           "type": "text",
@@ -21,7 +31,8 @@
           }
         },
         "price": {
-          "type": "price"
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -30,7 +41,8 @@
           }
         },
         "quantity_selector": {
-          "type": "quantity_selector"
+          "type": "quantity_selector",
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -40,41 +52,33 @@
           }
         },
         "description": {
-          "type": "description"
+          "type": "description",
+          "settings": {}
         },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
+            "heading": "Key features",
+            "icon": "star",
+            "content": "<p>Reusable press-on manicure with a polished finish, lightweight feel, and flexible wear options.</p>",
             "page": ""
           }
         },
         "collapsible-row-1": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
+            "heading": "Kit includes",
+            "icon": "box",
+            "content": "<p>Nail set, glue, prep pad, mini file, cuticle stick, and application guide.</p>",
             "page": ""
           }
         },
         "collapsible-row-3": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
+            "heading": "Ingredients",
+            "icon": "leaf",
+            "content": "<p>Final formula and compliance copy should be supplied before launch.</p>",
             "page": ""
           }
         },
@@ -96,15 +100,14 @@
         "description",
         "collapsible-row-0",
         "collapsible-row-1",
-        "collapsible-row-2",
         "collapsible-row-3",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "stacked",
         "media_size": "large",
         "constrain_to_viewport": true,
+        "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
@@ -112,39 +115,52 @@
         "padding_bottom": 12
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
+    "chic_product_detail": {
+      "type": "chic-product-detail",
       "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
+        "step-prep": {
+          "type": "step",
           "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
+            "heading": "Prep",
+            "text": "Clean and buff each nail, then push back cuticles for a smooth base."
           }
         },
-        "image-with-text-1": {
-          "type": "text",
+        "step-size": {
+          "type": "step",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
+            "heading": "Size",
+            "text": "Match each press-on to your natural nail and set them out in order."
+          }
+        },
+        "step-apply": {
+          "type": "step",
+          "settings": {
+            "heading": "Apply",
+            "text": "Add a thin layer of glue or a sticky tab to the press-on and your nail."
+          }
+        },
+        "step-press": {
+          "type": "step",
+          "settings": {
+            "heading": "Press",
+            "text": "Press firmly for 15 seconds and avoid water for the first hour."
           }
         }
       },
       "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
+        "step-prep",
+        "step-size",
+        "step-apply",
+        "step-press"
       ],
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_scheme": "scheme-1",
+        "eyebrow": "EASY AT HOME",
+        "heading": "HOW TO APPLY",
+        "subheading": "<p>Salon-quality nails in about 10 minutes, no appointment needed.</p>",
+        "columns_desktop": 4,
+        "show_numbers": true,
+        "show_image_frame": true
       }
     },
     "multicolumn": {
@@ -153,8 +169,8 @@
         "column-0": {
           "type": "column",
           "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "10 Minute Application",
+            "text": "<p>Prep, apply, press, and go without a salon appointment.</p>",
             "link_label": "",
             "link": ""
           }
@@ -162,8 +178,26 @@
         "column-1": {
           "type": "column",
           "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Up to 2 Weeks Wear",
+            "text": "<p>Glue application supports longer hold when nails are properly prepped.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column-2": {
+          "type": "column",
+          "settings": {
+            "title": "Salon Quality",
+            "text": "<p>Polished finish and reusable positioning for everyday looks.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column-3": {
+          "type": "column",
+          "settings": {
+            "title": "Custom Fit",
+            "text": "<p>Supports shape, length, color, and finish logic later.</p>",
             "link_label": "",
             "link": ""
           }
@@ -171,21 +205,23 @@
       },
       "block_order": [
         "column-0",
-        "column-1"
+        "column-1",
+        "column-2",
+        "column-3"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "swipe_on_mobile": false,
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -196,12 +232,12 @@
         "heading": "You may also like",
         "heading_size": "h2",
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
       }
@@ -209,8 +245,8 @@
   },
   "order": [
     "main",
-    "image-with-text",
     "multicolumn",
+    "chic_product_detail",
     "related-products"
   ]
 }

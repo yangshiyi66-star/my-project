@@ -1,0 +1,275 @@
+<section class="chic-page color-{{ section.settings.color_scheme }} gradient">
+  <div class="chic-hero full-bleed">
+    <div class="page-width chic-hero__inner">
+      <p class="chic-eyebrow">{{ page.handle | replace: '-', ' ' }}</p>
+      <h1 class="chic-heading">{{ page.title | escape }}</h1>
+      <p class="chic-copy">
+        {% case page.handle %}
+          {% when 'how-to-apply' %}
+            Three application routes for press-on nails: glue, adhesive tabs, and a combined method for stronger wear.
+          {% when 'faq' %}
+            Quick answers for sizing, application, removal, kits, shipping, and VIP signup.
+          {% when 'about-us' %}
+            Chic Nail makes at-home manicures feel polished, fast, and flexible for real life.
+          {% when 'rewards' %}
+            A front-end loyalty hub for account creation, points, rewards, referrals, and early access.
+          {% else %}
+            {{ page.content | strip_html | truncate: 180 }}
+        {% endcase %}
+      </p>
+    </div>
+  </div>
+
+  <div class="page-width chic-page__body">
+    {% case page.handle %}
+      {% when 'how-to-apply' %}
+        <nav class="chic-page__tabs" aria-label="Application methods">
+          <a href="#glue">Glue application</a>
+          <a href="#tabs">Adhesive tabs</a>
+          <a href="#combo">Glue + tabs</a>
+        </nav>
+
+        <div class="chic-grid chic-grid--4 chic-page__icons">
+          <details class="chic-card chic-icon-details" open>
+            <summary><span class="chic-icon">1</span><strong>Prep</strong></summary>
+            <p>Clean hands, push back cuticles, lightly buff the nail surface, and wipe away oils.</p>
+          </details>
+          <details class="chic-card chic-icon-details">
+            <summary><span class="chic-icon">2</span><strong>Size</strong></summary>
+            <p>Match each press-on to your natural nail. If between sizes, choose larger and gently file.</p>
+          </details>
+          <details class="chic-card chic-icon-details">
+            <summary><span class="chic-icon">3</span><strong>Apply</strong></summary>
+            <p>Use glue or tabs depending on wear goal, then press from the cuticle line forward.</p>
+          </details>
+          <details class="chic-card chic-icon-details">
+            <summary><span class="chic-icon">4</span><strong>Finish</strong></summary>
+            <p>Hold firmly for a secure fit and avoid water immediately after application.</p>
+          </details>
+        </div>
+
+        <div class="chic-page__steps" id="glue">
+          <h2 class="chic-section-title">Glue application</h2>
+          <div class="chic-grid chic-grid--3">
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Prep the nail</strong><p>Remove old polish, trim natural nails, push cuticles back, buff lightly, and cleanse.</p></div></article>
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Add glue</strong><p>Apply a thin layer to your natural nail and the press-on. Use less glue for shorter wear, more for longer wear.</p></div></article>
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Press and hold</strong><p>Apply at a slight downward angle and hold for 10-20 seconds until secure.</p></div></article>
+          </div>
+        </div>
+
+        <div class="chic-page__steps" id="tabs">
+          <h2 class="chic-section-title">Adhesive tab application</h2>
+          <div class="chic-grid chic-grid--3">
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Choose tab size</strong><p>Select the closest tab for each nail and press it onto the natural nail.</p></div></article>
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Peel backing</strong><p>Remove the backing without touching the adhesive surface.</p></div></article>
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Apply press-on</strong><p>Press the nail down firmly for a temporary manicure that is easier to remove.</p></div></article>
+          </div>
+        </div>
+
+        <div class="chic-page__steps" id="combo">
+          <h2 class="chic-section-title">Glue + adhesive tabs</h2>
+          <div class="chic-grid chic-grid--3">
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Start with tabs</strong><p>Place the adhesive tab first to create a protective base layer.</p></div></article>
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Add glue</strong><p>Apply glue over the tab and onto the press-on for a stronger hold.</p></div></article>
+            <article class="chic-card"><span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span><div><strong>Secure fit</strong><p>Press firmly and keep hands dry while the bond settles.</p></div></article>
+          </div>
+        </div>
+
+      {% when 'faq' %}
+        <div class="chic-page__faq-layout">
+          <aside>
+            <a href="#press-on">Press-on nails</a>
+            <a href="#kit">Kit includes</a>
+            <a href="#removal">Removal</a>
+            <a href="#orders">Orders</a>
+            <a href="#vip">VIP</a>
+          </aside>
+          <div class="chic-faq">
+            <h2 id="press-on" class="chic-section-title">Press-on nails</h2>
+            <details open><summary>How long do press-on nails last?</summary><p>Glue application is designed for longer wear, while adhesive tabs are better for short-term looks and easy style changes.</p></details>
+            <details><summary>How do I choose my size?</summary><p>Match each press-on to your natural nail from sidewall to sidewall. If you are between sizes, choose the larger nail and file the edge.</p></details>
+            <details><summary>Can press-on nails be reused?</summary><p>They can be reused when removed gently and cleaned properly. Reuse depends on wear time, glue amount, and removal method.</p></details>
+            <h2 id="kit" class="chic-section-title">Kit includes</h2>
+            <details open><summary>What comes in a nail kit?</summary><p>A typical kit includes multiple press-on nail sizes, glue, a mini file, cuticle stick, prep pad, and application instructions.</p></details>
+            <details><summary>Do I need accessories?</summary><p>Accessories like brush-on glue, remover, adhesive tabs, and top coat can improve the application and removal experience.</p></details>
+            <h2 id="removal" class="chic-section-title">Removal</h2>
+            <details open><summary>How do I remove press-on nails?</summary><p>Soak, soften, and gently lift from the sides. Avoid forcing the nail off to protect the natural nail.</p></details>
+            <details><summary>How do I protect my natural nails?</summary><p>Use a gentle removal method, avoid over-buffing, and moisturize after removal.</p></details>
+            <h2 id="orders" class="chic-section-title">Orders</h2>
+            <details><summary>Where do shipping and returns live?</summary><p>Keep full policies on dedicated customer service pages, with short links in the product page accordion and footer.</p></details>
+            <details><summary>Can I request custom styles?</summary><p>Custom requests are planned for a later flow. For now, reserve the custom entry points in the menu and homepage.</p></details>
+            <h2 id="vip" class="chic-section-title">VIP</h2>
+            <details><summary>What is the VIP list?</summary><p>The VIP list supports launch alerts, cart reminders, exclusive offers, and restock messages through email and SMS.</p></details>
+          </div>
+        </div>
+
+      {% when 'about-us' %}
+        <div class="chic-grid chic-grid--2">
+          <article class="chic-card chic-page__story">
+            <p class="chic-eyebrow">Our story</p>
+            <h2 class="chic-section-title">Beauty, on your time</h2>
+            <p class="chic-copy">Chic Nail focuses on press-on manicures that make everyday routines faster, easier, and more polished. The visual system leaves room for real product photography once final assets arrive.</p>
+          </article>
+          <article class="chic-card chic-page__story">
+            <p class="chic-eyebrow">What we make</p>
+            <h2 class="chic-section-title">Salon looks without the appointment</h2>
+            <p class="chic-copy">The storefront supports new arrivals, best sellers, seasonal series, Chinese-inspired custom drops, and later custom request forms.</p>
+          </article>
+        </div>
+        <div class="chic-grid chic-grid--4 chic-page__icons">
+          <details class="chic-card chic-icon-details" open><summary><span class="chic-icon">✓</span><strong>Easy</strong></summary><p>Simple application for home routines.</p></details>
+          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">★</span><strong>Polished</strong></summary><p>Designed to feel refined in photos and daily wear.</p></details>
+          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">↻</span><strong>Reusable</strong></summary><p>Reusable positioning for gentle removal and care.</p></details>
+          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">新</span><strong>Series</strong></summary><p>Seasonal and custom collection areas.</p></details>
+        </div>
+
+      {% when 'rewards' %}
+        <div class="chic-grid chic-grid--4 chic-page__icons">
+          <details class="chic-card chic-icon-details" open><summary><span class="chic-icon">1</span><strong>Create account</strong></summary><p>Front-end entry for account creation and rewards status.</p></details>
+          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">2</span><strong>Earn points</strong></summary><p>Purchases, reviews, referrals, and signup actions can become earn rules after backend setup.</p></details>
+          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">3</span><strong>Redeem</strong></summary><p>Reserved for discounts, gifts, free shipping, and early-access rewards.</p></details>
+          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">4</span><strong>Refer friends</strong></summary><p>Referral content can connect to the selected loyalty app later.</p></details>
+        </div>
+        <div class="chic-page__reward chic-card">
+          <p class="chic-eyebrow">VIP signup</p>
+          <h2 class="chic-section-title">Get launch alerts and exclusive offers</h2>
+          <p class="chic-copy">This front-end page reserves the loyalty and VIP experience; backend will decide the final app and data rules.</p>
+          <a class="button" href="{{ routes.account_register_url }}">Create account</a>
+        </div>
+
+      {% else %}
+        <div class="page-width--narrow rte">{{ page.content }}</div>
+    {% endcase %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .chic-page__body {
+    padding-top: 5.6rem;
+    padding-bottom: 5.6rem;
+  }
+
+  .chic-page__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 4rem;
+  }
+
+  .chic-page__tabs a,
+  .chic-page__faq-layout aside a {
+    padding: 1.4rem;
+	    border: 1px solid var(--chic-border);
+	    color: var(--chic-ink);
+	    font-size: 1.2rem;
+	    font-weight: var(--chic-ui-weight);
+	    letter-spacing: 0.12em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .chic-page__icons {
+    margin-bottom: 4.8rem;
+  }
+
+  .chic-page__steps + .chic-page__steps {
+    margin-top: 5.6rem;
+  }
+
+  .chic-page__steps article > div {
+    padding: 1.8rem;
+  }
+
+  .chic-page__steps strong {
+	    display: block;
+	    margin-bottom: 0.8rem;
+	    color: var(--chic-ink);
+	    font-weight: var(--chic-ui-weight);
+	    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .chic-page__steps p {
+    margin: 0;
+    color: var(--chic-muted);
+    font-size: 1.4rem;
+    line-height: 1.55;
+  }
+
+  .chic-page__faq-layout {
+    display: grid;
+    grid-template-columns: 24rem 1fr;
+    gap: 4rem;
+  }
+
+  .chic-page__faq-layout aside {
+    position: sticky;
+    top: 10rem;
+    display: grid;
+    align-content: start;
+    gap: 0.8rem;
+  }
+
+  .chic-faq .chic-section-title {
+    margin-top: 4rem;
+    text-align: left;
+  }
+
+  .chic-faq .chic-section-title:first-child {
+    margin-top: 0;
+  }
+
+  .chic-page__story {
+    min-height: 30rem;
+    padding: 2.8rem;
+  }
+
+  .chic-page__story .chic-section-title,
+  .chic-page__reward .chic-section-title {
+    text-align: left;
+  }
+
+  .chic-page__reward {
+    max-width: 78rem;
+    margin: 4rem auto 0;
+    padding: 3.2rem;
+    text-align: left;
+  }
+
+  .chic-page__reward .button {
+    margin-top: 2rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .chic-page__tabs,
+    .chic-page__faq-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .chic-page__faq-layout aside {
+      position: static;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Chic page content",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Chic page content"
+    }
+  ]
+}
+{% endschema %}

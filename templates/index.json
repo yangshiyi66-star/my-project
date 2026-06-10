@@ -1,210 +1,119 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+    "chic_hero": {
+      "type": "chic-hero",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "THE NEXT DROP IS HERE",
+        "heading": "PRESS-ON NAILS",
+        "subheading": "<p>Salon-quality nails, ready in minutes. Made to match your mood.</p>",
+        "button_label": "SHOP NEW ARRIVALS",
+        "button_link": "shopify://collections/all",
+        "height": "large"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
-    "featured_collection": {
+    "new_arrivals": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
+        "title": "SOME NEW",
+        "heading_size": "h2",
+        "description": "<p>Fresh drops, ready to wear in minutes.</p>",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
         "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 28,
+        "swipe_on_mobile": true,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
+    "best_sellers": {
+      "type": "featured-collection",
       "settings": {
-        "heading": "Multimedia collage",
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "OUR BEST SELLERS",
         "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
+        "description": "<p>Our most-loved sets, back in stock.</p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
         "full_width": false,
-        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "view_all_style": "link",
+        "color_scheme": "scheme-2",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
+    "chic_reviews": {
+      "type": "chic-reviews",
       "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
+        "r1": { "type": "review", "settings": { "name": "Ashley R.", "date": "2026/1/19", "quote": "[DEMO] I love how these look! So natural and easy to apply.", "rating": 5 } },
+        "r2": { "type": "review", "settings": { "name": "Mia T.", "date": "2026/1/9", "quote": "[DEMO] One of my favorite sets ever. Subtle, cute, and trendy.", "rating": 5 } },
+        "r3": { "type": "review", "settings": { "name": "Sophia L.", "date": "2025/12/28", "quote": "[DEMO] So cool and unique! I have never seen nails like this before.", "rating": 5 } },
+        "r4": { "type": "review", "settings": { "name": "Tiana W.", "date": "2025/10/21", "quote": "[DEMO] I LOVE these nails. Made my birthday outfit even more special!", "rating": 5 } },
+        "r5": { "type": "review", "settings": { "name": "Karin M.", "date": "2025/6/21", "quote": "[DEMO] Love these nails! High quality, no bending or cracking.", "rating": 5 } }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["r1", "r2", "r3", "r4", "r5"],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "OUR REVIEWS",
+        "review_link_label": "Write a review",
+        "review_link": "#"
+      }
+    },
+    "chic_popup": {
+      "type": "chic-popup",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "FIRST ORDER OFFER",
+        "heading": "15% OFF YOUR FIRST ORDER",
+        "subtext": "<p>Join the VIP list for exclusive deals, new launches, and nail inspo.</p>",
+        "placeholder": "Enter your email",
+        "button_label": "GET 15% OFF",
+        "discount_code": "WELCOME15",
+        "success_text": "You are in! Use code [CODE] for 15% off your first order.",
+        "decline_label": "No thanks",
+        "delay": 2
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "chic_hero",
+    "new_arrivals",
+    "best_sellers",
+    "chic_reviews",
+    "chic_popup"
   ]
 }

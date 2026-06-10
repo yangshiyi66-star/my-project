@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Chic Nail product placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf8f6"/>
+      <stop offset="0.52" stop-color="#eee7e3"/>
+      <stop offset="1" stop-color="#f8f5f3"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1c9b7"/>
+      <stop offset="1" stop-color="#dca28f"/>
+    </linearGradient>
+    <linearGradient id="nail" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff9f9"/>
+      <stop offset="0.35" stop-color="#e8b7c0"/>
+      <stop offset="1" stop-color="#b07880"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#1a1a1a" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="1020" cy="190" r="170" fill="#fff" opacity=".38"/>
+  <circle cx="210" cy="940" r="260" fill="#fff" opacity=".28"/>
+  <g filter="url(#shadow)" transform="translate(104 92) rotate(-10 520 540)">
+    <path d="M415 330c48-36 107-24 132 39l190 473c22 54-4 115-58 137-54 21-116-5-137-59L355 456c-21-52-2-104 60-126z" fill="url(#skin)"/>
+    <path d="M530 255c52-28 109-2 127 67l125 484c15 57-18 115-75 130-57 15-115-19-130-76L452 376c-16-61 16-107 78-121z" fill="url(#skin)"/>
+    <path d="M670 255c60-17 107 22 113 91l42 492c5 59-38 110-97 115-59 4-111-39-116-98l-42-491c-6-66 29-105 100-109z" fill="url(#skin)"/>
+    <path d="M800 310c58-7 100 35 96 94l-31 442c-4 59-55 105-114 101-59-4-105-55-101-114l30-442c4-58 41-89 120-81z" fill="url(#skin)"/>
+    <path d="M421 323c54-44 104-21 124 35 18 52 0 83-49 102-53 20-107 1-121-39-13-37 2-65 46-98z" fill="url(#nail)"/>
+    <path d="M530 246c64-31 108 3 123 65 13 56-12 84-64 97-56 14-110-12-119-55-9-41 10-77 60-107z" fill="url(#nail)"/>
+    <path d="M673 244c68-14 105 31 109 96 4 59-32 80-88 83-58 3-105-34-108-79-2-42 21-77 87-100z" fill="url(#nail)"/>
+    <path d="M803 301c66-3 97 43 91 99-6 54-43 72-95 68-58-5-97-43-93-86 3-40 31-70 97-81z" fill="url(#nail)"/>
+  </g>
+  <text x="600" y="1082" text-anchor="middle" fill="#1a1a1a" opacity=".55" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="9">CHIC NAIL</text>
+</svg>

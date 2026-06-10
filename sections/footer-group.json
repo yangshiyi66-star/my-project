@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -5,37 +14,45 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
-          }
-        },
-        "footer-1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Info",
-            "menu": "footer"
-          }
-        },
-        "footer-2": {
+        "fb_shop": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "heading": "Shop",
+            "subtext": "<ul><li><a href=\"/collections/all\">Shop All<\/a><\/li><li><a href=\"/collections/all\">New Arrivals<\/a><\/li><li><a href=\"/collections/all\">Best Sellers<\/a><\/li><li><a href=\"/pages/rewards\">Rewards<\/a><\/li><\/ul>"
+          }
+        },
+        "fb_about": {
+          "type": "text",
+          "settings": {
+            "heading": "About",
+            "subtext": "<ul><li><a href=\"/pages/about-us\">Our Story<\/a><\/li><li><a href=\"/pages/how-to-apply\">How to Apply<\/a><\/li><li><a href=\"/pages/faq\">FAQ<\/a><\/li><\/ul>"
+          }
+        },
+        "fb_help": {
+          "type": "text",
+          "settings": {
+            "heading": "Help",
+            "subtext": "<ul><li><a href=\"/account/login\">Log in<\/a><\/li><li><a href=\"/account/register\">Create Account<\/a><\/li><li><a href=\"/cart\">Cart<\/a><\/li><li><a href=\"/search\">Search<\/a><\/li><\/ul>"
+          }
+        },
+        "fb_mission": {
+          "type": "text",
+          "settings": {
+            "heading": "Our Mission",
+            "subtext": "<p>We make salon-quality press-on nails that fit real life — beautiful, easy, and made to last. No appointment needed.<\/p>"
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "fb_shop",
+        "fb_about",
+        "fb_help",
+        "fb_mission"
       ],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "JOIN THE CHIC CLUB",
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,

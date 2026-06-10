@@ -8,8 +8,65 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
+      {%- assign link_title_downcase = link.title | downcase -%}
+      {%- if link.title == '系列' -%}
+        {%- continue -%}
+      {%- endif -%}
       <li>
-        {%- if link.links != blank -%}
+        {%- if link_title_downcase == 'shop all' -%}
+          <div class="chic-shop-mega">
+            <a
+              id="HeaderMenu-{{ link.handle }}"
+              href="{{ link.url }}"
+              class="header__menu-item list-menu__item link link--text focus-inset chic-shop-mega__trigger"
+              {% if link.current %}
+                aria-current="page"
+              {% endif %}
+            >
+              <span
+                {%- if link.current %}
+                  class="header__active-menu-item"
+                {% endif %}
+              >
+                {{- link.title | escape -}}
+              </span>
+            </a>
+            <div class="chic-shop-mega__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup">
+              <div class="chic-shop-mega__grid page-width">
+                <div class="chic-shop-mega__column">
+                  <h3>Collections1</h3>
+                  <a href="{{ routes.all_products_collection_url }}">New Chic Nail drop</a>
+                  <a href="{{ routes.all_products_collection_url }}">Euro Summer</a>
+                  <a href="{{ routes.all_products_collection_url }}">Best-Selling Nails</a>
+                  <a href="{{ routes.all_products_collection_url }}">New Nail Arrivals</a>
+                  <a href="{{ routes.all_products_collection_url }}">Nail Accessories</a>
+                  <a href="{{ routes.all_products_collection_url }}">SHOP ALL</a>
+                </div>
+                <div class="chic-shop-mega__column">
+                  <h3>Collections2</h3>
+                  <a href="{{ routes.all_products_collection_url }}">New Chic Nail collab</a>
+                  <a href="{{ routes.all_products_collection_url }}">Chinese-Inspired Custom</a>
+                  <a href="{{ routes.all_products_collection_url }}">Holiday Series</a>
+                  <a href="{{ routes.all_products_collection_url }}">Limited Editions</a>
+                </div>
+                <div class="chic-shop-mega__column">
+                  <h3>Collections3</h3>
+                  <a href="{{ routes.all_products_collection_url }}">Build Your Own Nail Bundle</a>
+                  <a href="{{ routes.all_products_collection_url }}">Nail Bundles & Sets</a>
+                  <a href="{{ routes.all_products_collection_url }}">Nail Accessories Bundles</a>
+                  <a href="{{ routes.all_products_collection_url }}">Shop All Bundles</a>
+                </div>
+                <div class="chic-shop-mega__column">
+                  <h3>Collections4</h3>
+                  <a href="{{ routes.all_products_collection_url }}">Best Selling Lashes</a>
+                  <a href="{{ routes.all_products_collection_url }}">Magnetic Lashes</a>
+                  <a href="{{ routes.all_products_collection_url }}">Magnetic Liners</a>
+                  <a href="{{ routes.all_products_collection_url }}">SHOP ALL</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- elsif link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
               <summary
