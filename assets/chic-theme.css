@@ -191,6 +191,29 @@ h3,
   text-underline-offset: 0.25rem;
 }
 
+.chic-shop-mega__column a.chic-shop-mega__link--swatch {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chic-color-dot {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 1.15rem;
+  border-radius: 50%;
+  background: var(--dot-color);
+  box-shadow: 0 0 0 1px rgba(26, 26, 26, 0.08);
+}
+
+.chic-color-dot--border {
+  box-shadow: inset 0 0 0 1px rgba(26, 26, 26, 0.18), 0 0 0 1px rgba(26, 26, 26, 0.08);
+}
+
+.chic-color-dot--chrome {
+  background: linear-gradient(135deg, #f8f8f8 0%, #b9c0c7 45%, #fff 72%, #8f979f 100%);
+}
+
 .card-wrapper,
 .card,
 .card__inner,
@@ -897,7 +920,7 @@ h3,
 }
 
 .footer__content-top::before {
-  content: "CHIC NAIL";
+  content: "ZORA NAILS";
   display: block;
   font-family: var(--font-heading-family);
   font-size: clamp(5.4rem, 15vw, 17rem);
@@ -942,3 +965,129 @@ h3,
   text-decoration: underline;
 }
 
+/* ============================================================
+   Collection (Shop All) page — chic, homepage-consistent.
+   No bright-pink hero: centered serif header + mauve divider,
+   then the pill filter row + the existing chic product grid.
+   ============================================================ */
+
+/* Header banner (main-collection-banner) → quiet, centered, serif.
+   NOTE: .shopify-section prefix raises specificity above Dawn's
+   component-collection-hero.css, which sets row/left layout at >=750px
+   and loads later in the body (would otherwise win on source order). */
+.shopify-section .collection-hero {
+  padding-top: clamp(3.4rem, 5vw, 6.4rem);
+  padding-bottom: 0;
+  background: transparent;
+}
+
+.shopify-section .collection-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.shopify-section .collection-hero__text-wrapper {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  max-width: 60rem;
+}
+
+/* Override the earlier uppercase rule: collection names read better as-given */
+.shopify-section .collection-hero__title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: clamp(3.2rem, 4.4vw, 5.6rem);
+  font-weight: var(--chic-serif-weight);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+.shopify-section .collection-hero__description.rte {
+  max-width: 52rem;
+  margin: 0 auto;
+  color: var(--chic-muted);
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Thin mauve divider centered under the header, before the pills */
+.shopify-section .collection-hero__inner::after {
+  content: "";
+  order: 99;
+  width: 4rem;
+  height: 1px;
+  margin-top: 0.4rem;
+  background: var(--chic-mauve);
+}
+
+/* Filter + sort toolbar → quiet chic, no loud Dawn chrome */
+.facets__summary,
+.facet-filters__label,
+.mobile-facets__open,
+.facets__heading,
+.facets-container .product-count__text,
+.product-count__text {
+  font-family: var(--font-body-family);
+  font-weight: var(--chic-ui-weight);
+  letter-spacing: 0.1em;
+}
+
+.facets__heading,
+.product-count__text {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  color: var(--chic-muted);
+}
+
+.facets-container,
+.facets__form,
+.facets__display {
+  border-color: var(--chic-border);
+}
+
+/* Active filter chips → mauve outline */
+.active-facets__button .active-facets__button-inner {
+  border: 1px solid var(--chic-mauve);
+  color: var(--chic-mauve);
+}
+
+.active-facets__button:hover .active-facets__button-inner {
+  background: var(--chic-mauve);
+  color: #fff;
+}
+
+/* Selected facet checkbox/swatch accent */
+.facets__list .facet-checkbox input:checked ~ .facet-checkbox__label,
+.facets input[type="checkbox"]:checked + label {
+  color: var(--chic-ink);
+}
+
+.facets__price input,
+.facets .field__input,
+.facet-filters__sort {
+  border-color: var(--chic-border);
+}
+
+@media screen and (max-width: 640px) {
+  .collection-hero {
+    padding-top: 2.8rem;
+  }
+
+  .collection-hero__title {
+    font-size: clamp(2.8rem, 9vw, 4rem);
+  }
+
+  .chic-collbar__pills {
+    gap: 0.6rem;
+  }
+
+  .chic-pill {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.12rem;
+  }
+}

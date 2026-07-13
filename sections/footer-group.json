@@ -39,7 +39,7 @@
           "type": "text",
           "settings": {
             "heading": "Our Mission",
-            "subtext": "<p>We make salon-quality press-on nails that fit real life — beautiful, easy, and made to last. No appointment needed.<\/p>"
+            "subtext": "<p>Zora Nails makes soft jelly gel press-ons and simple application essentials for polished nails on your time.<\/p>"
           }
         }
       },
@@ -52,7 +52,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "JOIN THE CHIC CLUB",
+        "newsletter_heading": "JOIN ZORA CLUB",
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,

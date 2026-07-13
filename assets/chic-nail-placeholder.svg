@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Chic Nail product placeholder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Zora Nails product placeholder">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#fbf8f6"/>
@@ -31,5 +31,5 @@
     <path d="M673 244c68-14 105 31 109 96 4 59-32 80-88 83-58 3-105-34-108-79-2-42 21-77 87-100z" fill="url(#nail)"/>
     <path d="M803 301c66-3 97 43 91 99-6 54-43 72-95 68-58-5-97-43-93-86 3-40 31-70 97-81z" fill="url(#nail)"/>
   </g>
-  <text x="600" y="1082" text-anchor="middle" fill="#1a1a1a" opacity=".55" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="9">CHIC NAIL</text>
+  <text x="600" y="1082" text-anchor="middle" fill="#1a1a1a" opacity=".55" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="9">ZORA NAILS</text>
 </svg>

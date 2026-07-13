@@ -1,55 +1,83 @@
-<section class="chic-collection-kicker color-{{ section.settings.color_scheme }} gradient">
-  <div class="page-width">
-    <p class="chic-eyebrow">Browse by shape, length, and finish</p>
-    <div class="chic-grid chic-grid--4">
-      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
-        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-        <strong>Short</strong>
+{%- liquid
+  assign handles = section.settings.collection_handles | split: ','
+-%}
+<section class="chic-collbar color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width chic-collbar__inner">
+    {% if section.settings.eyebrow != blank %}
+      <p class="chic-eyebrow chic-collbar__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {% endif %}
+    <div class="chic-collbar__pills">
+      <a
+        class="chic-pill{% if collection.url == routes.all_products_collection_url %} chic-pill--active{% endif %}"
+        href="{{ routes.all_products_collection_url }}"
+      >
+        {{ section.settings.all_label | escape }}
       </a>
-      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
-        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-        <strong>Almond</strong>
-      </a>
-      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
-        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-        <strong>Square</strong>
-      </a>
-      <a class="chic-card chic-collection-kicker__tile" href="{{ routes.all_products_collection_url }}">
-        <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-        <strong>Chrome</strong>
-      </a>
+      {%- for handle in handles -%}
+        {%- assign h = handle | strip -%}
+        {%- assign c = collections[h] -%}
+        {%- if c.id -%}
+          <a
+            class="chic-pill{% if collection.id == c.id %} chic-pill--active{% endif %}"
+            href="{{ c.url }}"
+          >
+            {{ c.title | escape }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
 {% stylesheet %}
-  .chic-collection-kicker {
-    padding: 3.2rem 0 1.2rem;
+  .chic-collbar {
+    padding: 2rem 0 0.4rem;
   }
 
-  .chic-collection-kicker__tile {
+  .chic-collbar__inner {
     display: grid;
+    justify-items: center;
+    gap: 1.4rem;
+  }
+
+  .chic-collbar__eyebrow {
+    margin: 0;
+  }
+
+  .chic-collbar__pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 0.8rem;
-    color: inherit;
-    text-align: center;
+  }
+
+  .chic-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.85rem 1.9rem;
+    border: 1px solid var(--chic-border);
+    border-radius: 999px;
+    color: var(--chic-ink);
+    font-family: var(--font-body-family);
+    font-size: 1.2rem;
+    font-weight: var(--chic-ui-weight);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     text-decoration: none;
+    transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
   }
 
-  .chic-collection-kicker__tile .chic-placeholder {
-    min-height: 14rem;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
+  .chic-pill:hover {
+    background: var(--chic-mauve);
+    border-color: var(--chic-mauve);
+    color: #fff;
   }
 
-  .chic-collection-kicker__tile strong {
-	    padding-bottom: 1.2rem;
-	    color: var(--chic-ink);
-	    font-size: 1.2rem;
-	    font-weight: var(--chic-ui-weight);
-	    letter-spacing: 0.12em;
-	    text-transform: uppercase;
-	  }
+  .chic-pill--active {
+    background: var(--chic-ink);
+    border-color: var(--chic-ink);
+    color: #fff;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -58,6 +86,25 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shop by shape & length"
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "First pill label",
+      "default": "All"
+    },
+    {
+      "type": "text",
+      "id": "collection_handles",
+      "label": "Collection handles (comma-separated)",
+      "info": "Each handle becomes a pill. Non-existent collections are skipped.",
+      "default": "almond,square,short,medium,long"
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
