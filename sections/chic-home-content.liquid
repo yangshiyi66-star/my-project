@@ -1,158 +1,325 @@
 <section class="chic-home color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
-    <div class="chic-home__categories">
-      <p class="chic-eyebrow">Shop by nail style</p>
-      <h2 class="chic-section-title">{{ section.settings.category_heading }}</h2>
-      <div class="chic-grid chic-grid--4">
-        <a class="chic-home__tile chic-card" href="{{ section.settings.shop_all_link | default: routes.all_products_collection_url }}">
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-          <strong>Short</strong>
-          <small>Everyday length</small>
-        </a>
-        <a class="chic-home__tile chic-card" href="{{ section.settings.shop_all_link | default: routes.all_products_collection_url }}">
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-          <strong>Almond</strong>
-          <small>Soft tapered shape</small>
-        </a>
-        <a class="chic-home__tile chic-card" href="{{ section.settings.shop_all_link | default: routes.all_products_collection_url }}">
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-          <strong>Square</strong>
-          <small>Clean edge</small>
-        </a>
-        <a class="chic-home__tile chic-card" href="{{ section.settings.shop_all_link | default: routes.all_products_collection_url }}">
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-          <strong>Custom</strong>
-          <small>Coming later</small>
-        </a>
-      </div>
+    <div class="chic-brand-band" aria-label="{{ section.settings.band_label | escape }}">
+      <span>{{ section.settings.band_item_1 | escape }}</span>
+      <span>{{ section.settings.band_item_2 | escape }}</span>
+      <span>{{ section.settings.band_item_3 | escape }}</span>
+      <span>{{ section.settings.band_item_4 | escape }}</span>
     </div>
 
-    <div class="chic-home__promos chic-grid chic-grid--3">
-      <div class="chic-home__promo chic-card">
-        <p class="chic-eyebrow">Quick order</p>
-        <h3>{{ section.settings.quick_heading }}</h3>
-        <p class="chic-copy">{{ section.settings.quick_text }}</p>
-        <a class="button" href="{{ section.settings.shop_all_link | default: routes.all_products_collection_url }}">Shop all</a>
+    <div class="chic-home__section-head">
+      <p class="chic-eyebrow">{{ section.settings.category_eyebrow | escape }}</p>
+      <h2 class="chic-section-title">{{ section.settings.category_heading | escape }}</h2>
+      <p class="chic-copy">{{ section.settings.category_text | escape }}</p>
+    </div>
+
+    <div class="chic-shape-grid" aria-label="{{ section.settings.category_heading | escape }}">
+      <a class="chic-shape-tile chic-card" href="{{ section.settings.square_link | default: routes.all_products_collection_url }}">
+        <span class="chic-shape-tile__mark chic-shape-tile__mark--square"></span>
+        <strong>Square</strong>
+        <small>Clean edge</small>
+      </a>
+      <a class="chic-shape-tile chic-card" href="{{ section.settings.squoval_link | default: routes.all_products_collection_url }}">
+        <span class="chic-shape-tile__mark chic-shape-tile__mark--squoval"></span>
+        <strong>Squoval</strong>
+        <small>Soft square</small>
+      </a>
+      <a class="chic-shape-tile chic-card" href="{{ section.settings.short_almond_link | default: routes.all_products_collection_url }}">
+        <span class="chic-shape-tile__mark chic-shape-tile__mark--short-almond"></span>
+        <strong>Short Almond</strong>
+        <small>Everyday taper</small>
+      </a>
+      <a class="chic-shape-tile chic-card" href="{{ section.settings.long_almond_link | default: routes.all_products_collection_url }}">
+        <span class="chic-shape-tile__mark chic-shape-tile__mark--long-almond"></span>
+        <strong>Long Almond</strong>
+        <small>Elongated soft</small>
+      </a>
+      <a class="chic-shape-tile chic-card" href="{{ section.settings.coffin_link | default: routes.all_products_collection_url }}">
+        <span class="chic-shape-tile__mark chic-shape-tile__mark--coffin"></span>
+        <strong>Coffin</strong>
+        <small>Tapered square</small>
+      </a>
+      <a class="chic-shape-tile chic-card" href="{{ section.settings.stiletto_link | default: routes.all_products_collection_url }}">
+        <span class="chic-shape-tile__mark chic-shape-tile__mark--stiletto"></span>
+        <strong>Stiletto</strong>
+        <small>Pointed finish</small>
+      </a>
+    </div>
+
+    <div class="chic-story-grid">
+      <div class="chic-story-panel chic-card">
+        <p class="chic-eyebrow">{{ section.settings.story_eyebrow | escape }}</p>
+        <h2>{{ section.settings.story_heading | escape }}</h2>
+        <p>{{ section.settings.story_text | escape }}</p>
+        <a class="button button--secondary" href="{{ section.settings.story_link | default: routes.all_products_collection_url }}">
+          {{ section.settings.story_button | escape }}
+        </a>
       </div>
-      <div class="chic-home__promo chic-card">
-        <p class="chic-eyebrow">Customer looks</p>
-        <h3>Real manicures, real routines</h3>
-        <div class="chic-home__ugc chic-grid chic-grid--3" aria-hidden="true">
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
-          <span class="chic-placeholder"><img src="{{ 'chic-nail-placeholder.svg' | asset_url }}" alt="" loading="lazy" width="1200" height="1200"></span>
+
+      <div class="chic-how chic-card">
+        <div class="chic-how__head">
+          <p class="chic-eyebrow">{{ section.settings.how_eyebrow | escape }}</p>
+          <h2>{{ section.settings.how_heading | escape }}</h2>
         </div>
-      </div>
-      <div class="chic-home__promo chic-card">
-        <p class="chic-eyebrow">In every kit</p>
-        <h3>Prep, apply, repeat</h3>
-        <p class="chic-copy">Nail set, glue, mini file, cuticle stick, prep pad, and an easy application guide.</p>
-      </div>
-    </div>
-
-    <div class="chic-home__story chic-grid chic-grid--2">
-      <div class="chic-home__panel chic-card">
-        <p class="chic-eyebrow">New series</p>
-        <h3>Seasonal drops and Chinese-inspired customs</h3>
-        <p class="chic-copy">Reserved for holiday launches, limited styles, and future custom requests without changing the page structure.</p>
-      </div>
-      <div class="chic-home__panel chic-card chic-faq">
-        <p class="chic-eyebrow">FAQ preview</p>
-        <details open>
-          <summary>How long do press-on nails last?</summary>
-          <p>Glue application is positioned for longer wear, while adhesive tabs work well for short-term looks and easy changes.</p>
-        </details>
-        <details>
-          <summary>What is included in a nail kit?</summary>
-          <p>Use this area to confirm nails, glue, prep pad, mini file, cuticle stick, and instructions.</p>
-        </details>
-        <details>
-          <summary>Can I request a custom style?</summary>
-          <p>Custom requests can be collected through a dedicated form after the backend flow is ready.</p>
-        </details>
+        <ol class="chic-how__steps">
+          <li>
+            <span>01</span>
+            <strong>{{ section.settings.step_1_title | escape }}</strong>
+            <p>{{ section.settings.step_1_text | escape }}</p>
+          </li>
+          <li>
+            <span>02</span>
+            <strong>{{ section.settings.step_2_title | escape }}</strong>
+            <p>{{ section.settings.step_2_text | escape }}</p>
+          </li>
+          <li>
+            <span>03</span>
+            <strong>{{ section.settings.step_3_title | escape }}</strong>
+            <p>{{ section.settings.step_3_text | escape }}</p>
+          </li>
+          <li>
+            <span>04</span>
+            <strong>{{ section.settings.step_4_title | escape }}</strong>
+            <p>{{ section.settings.step_4_text | escape }}</p>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
 </section>
 
 {% stylesheet %}
-  .chic-home {
-    padding: 5.6rem 0;
-  }
-
-  .chic-home__categories {
-    text-align: center;
-  }
-
-  .chic-home__tile {
+  .chic-brand-band {
     display: grid;
-    gap: 0.8rem;
-    padding-bottom: 1.4rem;
-    color: inherit;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    margin-bottom: clamp(5.2rem, 6vw, 8rem);
+    overflow: hidden;
+    border: 1px solid var(--chic-line-strong);
+    border-radius: var(--chic-radius-sm);
+    background: var(--chic-cocoa);
+    box-shadow: var(--chic-shadow-soft);
+  }
+
+  .chic-brand-band span {
+    display: grid;
+    min-height: 7.2rem;
+    place-items: center;
+    padding: 1.6rem;
+    background: rgba(255, 253, 252, 0.92);
+    color: var(--chic-cocoa);
+    font-size: 1.1rem;
+    font-weight: var(--chic-button-weight);
+    letter-spacing: 0.16em;
     text-align: center;
-    text-decoration: none;
-  }
-
-  .chic-home__tile .chic-placeholder {
-    min-height: 20rem;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-  }
-
-	  .chic-home__tile strong,
-	  .chic-home__promo h3,
-	  .chic-home__panel h3 {
-	    color: var(--chic-ink);
-	    font-weight: var(--chic-ui-weight);
-	  }
-
-  .chic-home__tile strong {
-    font-size: 1.4rem;
-    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
-  .chic-home__tile small {
+  .chic-home__section-head {
+    display: grid;
+    justify-items: center;
+    max-width: 68rem;
+    margin: 0 auto 3.2rem;
+    text-align: center;
+  }
+
+  .chic-home__section-head .chic-copy {
+    max-width: 52rem;
+    margin: 0;
+  }
+
+  .chic-shape-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .chic-shape-tile {
+    display: grid;
+    gap: 0.8rem;
+    min-height: 19rem;
+    align-content: center;
+    justify-items: center;
+    padding: 1.8rem 1.2rem;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .chic-shape-tile:hover {
+    box-shadow: var(--chic-shadow-deep);
+    transform: translateY(-0.2rem);
+  }
+
+  .chic-shape-tile__mark {
+    display: block;
+    width: 4.2rem;
+    height: 8.8rem;
+    border: 1px solid rgba(91, 44, 47, 0.24);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.65), rgba(234,193,178,.48)),
+      var(--chic-paper);
+    box-shadow: inset 0 0 0 0.6rem rgba(255, 253, 252, 0.38);
+  }
+
+  .chic-shape-tile__mark--square {
+    border-radius: 1.2rem 1.2rem 0.5rem 0.5rem;
+  }
+
+  .chic-shape-tile__mark--squoval {
+    border-radius: 2rem 2rem 1rem 1rem;
+  }
+
+  .chic-shape-tile__mark--short-almond {
+    height: 7.6rem;
+    border-radius: 999px 999px 2.4rem 2.4rem;
+  }
+
+  .chic-shape-tile__mark--long-almond {
+    height: 9.8rem;
+    border-radius: 999px 999px 2.6rem 2.6rem;
+  }
+
+  .chic-shape-tile__mark--coffin {
+    clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+    border-radius: 0.9rem 0.9rem 0.4rem 0.4rem;
+  }
+
+  .chic-shape-tile__mark--stiletto {
+    clip-path: polygon(50% 0, 94% 42%, 76% 100%, 24% 100%, 6% 42%);
+    border-radius: 2rem;
+  }
+
+  .chic-shape-tile strong {
+    color: var(--chic-ink);
+    font-size: 1.2rem;
+    font-weight: var(--chic-button-weight);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .chic-shape-tile small {
     color: var(--chic-muted);
     font-size: 1.2rem;
   }
 
-  .chic-home__promos,
-  .chic-home__story {
-    margin-top: 4rem;
+  .chic-story-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 1.6rem;
+    margin-top: clamp(5.2rem, 6vw, 8rem);
   }
 
-  .chic-home__promo,
-  .chic-home__panel {
-    min-height: 28rem;
-    padding: 2.4rem;
+  .chic-story-panel,
+  .chic-how {
+    padding: clamp(2.4rem, 4vw, 4.2rem);
   }
 
-  .chic-home__promo h3,
-  .chic-home__panel h3 {
+  .chic-story-panel {
+    display: flex;
+    min-height: 44rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    background:
+      radial-gradient(circle at 22% 18%, rgba(234, 193, 178, 0.34), transparent 28%),
+      rgba(255, 253, 252, 0.78);
+  }
+
+  .chic-story-panel h2,
+  .chic-how h2 {
+    max-width: 50rem;
     margin: 0;
+    color: var(--chic-cocoa);
     font-family: var(--font-heading-family);
-    font-size: 3rem;
+    font-size: clamp(3.8rem, 5vw, 6.8rem);
+    font-weight: var(--chic-serif-weight);
+    letter-spacing: 0;
+    line-height: 0.92;
+  }
+
+  .chic-story-panel p:not(.chic-eyebrow) {
+    max-width: 42rem;
+    color: var(--chic-muted);
+    font-size: 1.5rem;
+    line-height: 1.65;
+  }
+
+  .chic-story-panel .button {
+    align-self: flex-start;
+    margin-top: 1.4rem;
+  }
+
+  .chic-how__steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 3.2rem 0 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--chic-line);
+    border-radius: var(--chic-radius-sm);
+    background: var(--chic-line);
+    list-style: none;
+  }
+
+  .chic-how__steps li {
+    min-height: 18rem;
+    padding: 2.2rem;
+    background: rgba(255, 253, 252, 0.86);
+  }
+
+  .chic-how__steps span {
+    color: var(--chic-merlot);
+    font-size: 1rem;
+    font-weight: var(--chic-button-weight);
+    letter-spacing: 0.18em;
+  }
+
+  .chic-how__steps strong {
+    display: block;
+    margin-top: 3.2rem;
+    color: var(--chic-ink);
+    font-family: var(--font-heading-family);
+    font-size: 2.6rem;
+    font-weight: var(--chic-serif-weight);
     line-height: 1;
   }
 
-  .chic-home__promo .button {
-    margin-top: 2rem;
+  .chic-how__steps p {
+    margin: 0.8rem 0 0;
+    color: var(--chic-muted);
+    font-size: 1.35rem;
+    line-height: 1.5;
   }
 
-  .chic-home__ugc {
-    margin-top: 2rem;
+  @media screen and (max-width: 989px) {
+    .chic-brand-band,
+    .chic-shape-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chic-story-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .chic-home__ugc .chic-placeholder {
-    min-height: 15rem;
+  @media screen and (max-width: 749px) {
+    .chic-brand-band,
+    .chic-shape-grid,
+    .chic-how__steps {
+      grid-template-columns: 1fr;
+    }
+
+    .chic-story-panel {
+      min-height: 34rem;
+    }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Chic home content",
+  "name": "Zora home content",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -164,31 +331,175 @@
     },
     {
       "type": "text",
-      "id": "category_heading",
-      "label": "Category heading",
-      "default": "Find your next manicure"
-    },
-    {
-      "type": "url",
-      "id": "shop_all_link",
-      "label": "Shop all link"
+      "id": "band_label",
+      "label": "Band accessibility label",
+      "default": "Zora Nails brand highlights"
     },
     {
       "type": "text",
-      "id": "quick_heading",
-      "label": "Quick order heading",
-      "default": "Ready in minutes"
+      "id": "band_item_1",
+      "label": "Band item 1",
+      "default": "Salon-real finish"
+    },
+    {
+      "type": "text",
+      "id": "band_item_2",
+      "label": "Band item 2",
+      "default": "Short wear or longer hold"
+    },
+    {
+      "type": "text",
+      "id": "band_item_3",
+      "label": "Band item 3",
+      "default": "Soft dawn palette"
+    },
+    {
+      "type": "text",
+      "id": "band_item_4",
+      "label": "Band item 4",
+      "default": "Application essentials"
+    },
+    {
+      "type": "text",
+      "id": "category_eyebrow",
+      "label": "Category eyebrow",
+      "default": "Shop by shape"
+    },
+    {
+      "type": "text",
+      "id": "category_heading",
+      "label": "Category heading",
+      "default": "Choose the silhouette first."
     },
     {
       "type": "textarea",
-      "id": "quick_text",
-      "label": "Quick order text",
-      "default": "Make repeat purchases easy with best sellers, new arrivals, and add-to-bag cards close together."
+      "id": "category_text",
+      "label": "Category text",
+      "default": "Six everyday nail shapes make browsing faster without separating shape and length into two decisions."
+    },
+    {
+      "type": "url",
+      "id": "square_link",
+      "label": "Square link"
+    },
+    {
+      "type": "url",
+      "id": "squoval_link",
+      "label": "Squoval link"
+    },
+    {
+      "type": "url",
+      "id": "short_almond_link",
+      "label": "Short almond link"
+    },
+    {
+      "type": "url",
+      "id": "long_almond_link",
+      "label": "Long almond link"
+    },
+    {
+      "type": "url",
+      "id": "coffin_link",
+      "label": "Coffin link"
+    },
+    {
+      "type": "url",
+      "id": "stiletto_link",
+      "label": "Stiletto link"
+    },
+    {
+      "type": "text",
+      "id": "story_eyebrow",
+      "label": "Story eyebrow",
+      "default": "Brand story"
+    },
+    {
+      "type": "text",
+      "id": "story_heading",
+      "label": "Story heading",
+      "default": "A quieter way to get ready."
+    },
+    {
+      "type": "textarea",
+      "id": "story_text",
+      "label": "Story text",
+      "default": "Zora Nails is built around soft press-on sets, considered colors, and simple prep pieces that make an at-home manicure feel polished without feeling precious."
+    },
+    {
+      "type": "text",
+      "id": "story_button",
+      "label": "Story button",
+      "default": "Shop the edit"
+    },
+    {
+      "type": "url",
+      "id": "story_link",
+      "label": "Story link"
+    },
+    {
+      "type": "text",
+      "id": "how_eyebrow",
+      "label": "How eyebrow",
+      "default": "How it works"
+    },
+    {
+      "type": "text",
+      "id": "how_heading",
+      "label": "How heading",
+      "default": "Four small steps, salon-real nails."
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step 1 title",
+      "default": "Prep"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_text",
+      "label": "Step 1 text",
+      "default": "Clean and dry nails with the prep pad before application."
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step 2 title",
+      "default": "Size"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_text",
+      "label": "Step 2 text",
+      "default": "Match each press-on to your natural nail before removing adhesive backing."
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step 3 title",
+      "default": "Press"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_text",
+      "label": "Step 3 text",
+      "default": "Apply tabs or glue, then press firmly from cuticle to tip."
+    },
+    {
+      "type": "text",
+      "id": "step_4_title",
+      "label": "Step 4 title",
+      "default": "Go"
+    },
+    {
+      "type": "textarea",
+      "id": "step_4_text",
+      "label": "Step 4 text",
+      "default": "File lightly if needed and carry the look into your day."
     }
   ],
   "presets": [
     {
-      "name": "Chic home content"
+      "name": "Zora home content"
     }
   ]
 }

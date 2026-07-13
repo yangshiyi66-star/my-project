@@ -12,12 +12,65 @@
     "chic_hero": {
       "type": "chic-hero",
       "settings": {
-        "eyebrow": "THE NEXT DROP IS HERE",
-        "heading": "PRESS-ON NAILS",
-        "subheading": "<p>Salon-quality nails, ready in minutes. Made to match your mood.</p>",
+        "eyebrow": "ZORA NAILS",
+        "heading": "Your dawn, your way.",
+        "script_note": "Softly put together",
+        "subheading": "<p>Salon-real nails, in minutes. Press-on sets and application essentials made for polished mornings, late plans, and everything in between.</p>",
         "button_label": "SHOP NEW ARRIVALS",
         "button_link": "shopify://collections/all",
+        "secondary_button_label": "BUILD A NAIL KIT",
+        "secondary_button_link": "shopify://collections/all",
+        "meta_1_heading": "10 min",
+        "meta_1_text": "Application",
+        "meta_2_heading": "2 wear",
+        "meta_2_text": "Options",
+        "meta_3_heading": "Salon",
+        "meta_3_text": "Finish",
+        "visual_label": "Zora Nails press-on nail display",
+        "visual_kicker": "Dawn edit",
+        "visual_heading": "Polished without the appointment.",
+        "visual_text": "Short shapes, soft colors, and essentials designed to make at-home application feel calm and considered.",
+        "visual_script": "morning-ready",
+        "product_kicker": "Press-on atelier",
+        "kit_1": "Press-on nails",
+        "kit_2": "Adhesive tabs",
+        "kit_3": "Prep essentials",
         "height": "large"
+      }
+    },
+    "zora_home_content": {
+      "type": "chic-home-content",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "band_label": "Zora Nails brand highlights",
+        "band_item_1": "Salon-real finish",
+        "band_item_2": "Short wear or longer hold",
+        "band_item_3": "Soft dawn palette",
+        "band_item_4": "Application essentials",
+        "category_eyebrow": "Shop by shape",
+        "category_heading": "Choose the silhouette first.",
+        "category_text": "Six everyday nail shapes make browsing faster without separating shape and length into two decisions.",
+        "square_link": "shopify://collections/all",
+        "squoval_link": "shopify://collections/all",
+        "short_almond_link": "shopify://collections/all",
+        "long_almond_link": "shopify://collections/all",
+        "coffin_link": "shopify://collections/all",
+        "stiletto_link": "shopify://collections/all",
+        "story_eyebrow": "Brand story",
+        "story_heading": "A quieter way to get ready.",
+        "story_text": "Zora Nails is built around soft press-on sets, considered colors, and simple prep pieces that make an at-home manicure feel polished without feeling precious.",
+        "story_button": "SHOP THE EDIT",
+        "story_link": "shopify://collections/all",
+        "how_eyebrow": "How it works",
+        "how_heading": "Four small steps, salon-real nails.",
+        "step_1_title": "Prep",
+        "step_1_text": "Clean and dry nails with the prep pad before application.",
+        "step_2_title": "Size",
+        "step_2_text": "Match each press-on to your natural nail before removing adhesive backing.",
+        "step_3_title": "Press",
+        "step_3_text": "Apply tabs or glue, then press firmly from cuticle to tip.",
+        "step_4_title": "Go",
+        "step_4_text": "File lightly if needed and carry the look into your day."
       }
     },
     "new_arrivals": {
@@ -105,12 +158,13 @@
         "discount_code": "WELCOME15",
         "success_text": "You are in! Use code [CODE] for 15% off your first order.",
         "decline_label": "No thanks",
-        "delay": 2
+        "delay": 8
       }
     }
   },
   "order": [
     "chic_hero",
+    "zora_home_content",
     "new_arrivals",
     "best_sellers",
     "chic_reviews",

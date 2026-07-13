@@ -1,10 +1,26 @@
 :root {
   --chic-mauve: #b07880;
-  --chic-cream: #f8f5f3;
-  --chic-ink: #1a1a1a;
-  --chic-muted: rgba(26, 26, 26, 0.62);
-  --chic-border: rgba(26, 26, 26, 0.12);
-  --chic-soft: rgba(248, 245, 243, 0.82);
+  --chic-warm-cream: #f6efe6;
+  --chic-paper: #fbf8f4;
+  --chic-paper-2: #efe7de;
+  --chic-dawn-peach: #eac1b2;
+  --chic-dusty-rose: #b89f95;
+  --chic-cocoa: #5b2c2f;
+  --chic-merlot: #7b2e34;
+  --chic-silver: #c9c6c5;
+  --chic-white: #fffdfc;
+  --chic-cream: var(--chic-warm-cream);
+  --chic-ink: #352522;
+  --chic-muted: rgba(53, 37, 34, 0.66);
+  --chic-border: rgba(91, 44, 47, 0.1);
+  --chic-line: rgba(91, 44, 47, 0.1);
+  --chic-line-strong: rgba(91, 44, 47, 0.14);
+  --chic-soft: rgba(251, 248, 244, 0.82);
+  --chic-shadow-soft: 0 1.4rem 4rem rgba(91, 44, 47, 0.08);
+  --chic-shadow-deep: 0 2.2rem 6rem rgba(91, 44, 47, 0.09);
+  --chic-radius-xs: 0.4rem;
+  --chic-radius-sm: 0.8rem;
+  --chic-radius-md: 1.2rem;
   --chic-serif-weight: 400;
   --chic-body-weight: 400;
   --chic-ui-weight: 400;
@@ -14,6 +30,9 @@
 
 body {
   color: var(--chic-ink);
+  background:
+    radial-gradient(circle at 88% 0%, rgba(234, 193, 178, 0.16), transparent 18%),
+    linear-gradient(180deg, var(--chic-paper), #fffdfa 25%, var(--chic-paper) 100%);
   letter-spacing: 0;
   font-weight: var(--chic-body-weight);
 }
@@ -22,11 +41,42 @@ body {
 .shopify-payment-button__button,
 .quick-add__submit,
 .chic-button {
-  border-radius: 0;
+  min-height: 4.2rem;
+  border: 1px solid var(--chic-cocoa);
+  border-radius: 999px;
+  background: var(--chic-cocoa);
+  color: var(--chic-white);
   font-family: var(--font-body-family);
   font-weight: var(--chic-button-weight);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.button:hover,
+.shopify-payment-button__button:hover,
+.quick-add__submit:hover,
+.chic-button:hover {
+  border-color: var(--chic-merlot);
+  background: var(--chic-merlot);
+  box-shadow: var(--chic-shadow-soft);
+  transform: translateY(-1px);
+}
+
+.button.button--secondary,
+.button--secondary,
+.chic-button--secondary {
+  border-color: var(--chic-cocoa);
+  background: transparent;
+  color: var(--chic-cocoa);
+}
+
+.button.button--secondary:hover,
+.button--secondary:hover,
+.chic-button--secondary:hover {
+  border-color: var(--chic-cocoa);
+  background: rgba(91, 44, 47, 0.05);
+  color: var(--chic-cocoa);
 }
 
 .h0,
@@ -91,9 +141,21 @@ h3,
 }
 
 .announcement-bar__message {
+  color: var(--chic-cocoa);
   font-weight: var(--chic-ui-weight);
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.announcement-bar,
+.announcement-bar-section,
+.utility-bar {
+  background: var(--chic-paper);
+  color: var(--chic-cocoa);
+}
+
+.announcement-bar {
+  border-bottom: 1px solid var(--chic-line);
 }
 
 .chic-shop-mega {
@@ -901,6 +963,300 @@ h3,
   .chic-home__promo,
   .chic-home__panel {
     padding: 2rem;
+  }
+}
+
+/* ============================================================
+   Zora Nails homepage V4 — Dawn Editorial x Glass Atelier
+   ============================================================ */
+.shopify-section-header-sticky .header-wrapper,
+.header-wrapper {
+  background: rgba(255, 253, 252, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--chic-line);
+}
+
+.header__heading-link .h2 {
+  color: var(--chic-cocoa);
+  font-size: clamp(2.5rem, 3vw, 3.4rem);
+  letter-spacing: 0.12em;
+}
+
+.header__icon,
+.header__icon--cart .icon {
+  color: var(--chic-ink);
+}
+
+.header__icon {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.header__icon:hover {
+  border-color: var(--chic-line-strong);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.header__menu-item,
+.list-menu__item,
+.menu-drawer__menu-item {
+  color: rgba(53, 37, 34, 0.88);
+  font-size: 1.1rem;
+  font-weight: var(--chic-button-weight);
+}
+
+.chic-shop-mega__trigger::after {
+  right: 1.6rem;
+  left: 1.6rem;
+  height: 1px;
+  background: var(--chic-merlot);
+}
+
+.chic-shop-mega__content {
+  padding: 3.4rem 0 3.8rem;
+  border-color: var(--chic-line);
+  background: rgba(255, 253, 252, 0.94);
+  box-shadow: 0 1.8rem 4rem rgba(91, 44, 47, 0.04);
+  backdrop-filter: blur(16px);
+}
+
+.chic-shop-mega__column h3 {
+  margin-bottom: 1.6rem;
+  color: var(--chic-cocoa);
+  font-family: var(--font-heading-family);
+  font-size: 2.3rem;
+  font-weight: var(--chic-serif-weight);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.chic-shop-mega__column a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--chic-muted);
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.chic-shop-mega__column a:hover {
+  color: var(--chic-merlot);
+  text-decoration: none;
+  transform: translateX(0.3rem);
+}
+
+.chic-script-note {
+  margin: 1.6rem 0 2.4rem;
+  color: var(--chic-cocoa);
+  font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  line-height: 1;
+  text-transform: none;
+}
+
+.featured-collection {
+  background: transparent;
+}
+
+.featured-collection .collection {
+  padding-top: clamp(4.8rem, 6vw, 7.6rem);
+  padding-bottom: clamp(4.8rem, 6vw, 7.6rem);
+}
+
+.collection__title.title-wrapper {
+  align-items: center;
+  max-width: 76rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.collection__title .title {
+  color: var(--chic-ink);
+  font-size: clamp(4.2rem, 5vw, 7.8rem);
+  line-height: 0.9;
+}
+
+.collection__description {
+  color: var(--chic-muted);
+}
+
+.card-wrapper {
+  position: relative;
+}
+
+.card,
+.card__inner,
+.card__media .media,
+.global-media-settings,
+.product__media,
+.product-media-container,
+.chic-placeholder {
+  border-radius: var(--chic-radius-sm);
+}
+
+.card__inner {
+  border: 1px solid var(--chic-line);
+  background: rgba(255, 253, 252, 0.74);
+  box-shadow: var(--chic-shadow-soft);
+}
+
+.card__content {
+  padding-top: 0.2rem;
+}
+
+.badge {
+  border-color: var(--chic-line-strong);
+  border-radius: 999px;
+  background: rgba(255, 253, 252, 0.9);
+  color: var(--chic-cocoa);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.quick-add__submit {
+  min-height: 4.4rem;
+  border-color: var(--chic-cocoa);
+  background: var(--chic-cocoa);
+  color: var(--chic-white);
+}
+
+.quick-add__submit:hover {
+  border-color: var(--chic-merlot);
+  background: var(--chic-merlot);
+}
+
+.chic-product-card__tools {
+  position: absolute;
+  z-index: 2;
+  top: 1.2rem;
+  right: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.chic-card-wishlist {
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 1px solid var(--chic-line-strong);
+  border-radius: 50%;
+  background: rgba(255, 253, 252, 0.82);
+  color: var(--chic-cocoa);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.chic-card-wishlist:hover {
+  background: var(--chic-white);
+  transform: translateY(-1px);
+}
+
+.chic-card-wishlist svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.chic-card-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+}
+
+.chic-card-swatch {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid rgba(53, 37, 34, 0.12);
+  border-radius: 50%;
+  background: var(--swatch-color, var(--chic-dusty-rose));
+}
+
+.chic-card-swatch--white,
+.chic-card-swatch--cream,
+.chic-card-swatch--ivory {
+  box-shadow: inset 0 0 0 1px rgba(53, 37, 34, 0.16);
+}
+
+.chic-card-swatch--pink { --swatch-color: #e8b5bd; }
+.chic-card-swatch--nude { --swatch-color: #e7c7b8; }
+.chic-card-swatch--white { --swatch-color: #fffdf8; }
+.chic-card-swatch--red { --swatch-color: #9f2630; }
+.chic-card-swatch--brown { --swatch-color: #6b4636; }
+.chic-card-swatch--black { --swatch-color: #28211f; }
+.chic-card-swatch--chrome,
+.chic-card-swatch--silver {
+  --swatch-color: linear-gradient(135deg, #f8f8f8 0%, #bcc2c8 42%, #fff 72%, #8e959d 100%);
+}
+
+.chic-card-swatch--clear { --swatch-color: rgba(255, 255, 255, 0.52); }
+.chic-card-swatch--blue { --swatch-color: #8fa5b7; }
+.chic-card-swatch--green { --swatch-color: #8e9b83; }
+.chic-card-swatch--purple { --swatch-color: #9b8395; }
+
+.chic-home {
+  padding: clamp(5.6rem, 7vw, 9.6rem) 0;
+  background: var(--chic-paper);
+}
+
+.chic-card {
+  border-color: var(--chic-line);
+  border-radius: var(--chic-radius-sm);
+  background: rgba(255, 253, 252, 0.78);
+  box-shadow: var(--chic-shadow-soft);
+}
+
+.chic-eyebrow {
+  color: var(--chic-merlot);
+  font-size: 1rem;
+  font-weight: var(--chic-button-weight);
+  letter-spacing: 0.18em;
+}
+
+.chic-section-title,
+.chic-heading {
+  color: var(--chic-ink);
+  line-height: 0.92;
+}
+
+.footer {
+  background: var(--chic-paper-2);
+}
+
+.footer__content-top::before {
+  color: rgba(91, 44, 47, 0.72);
+  font-weight: var(--chic-serif-weight);
+}
+
+@media screen and (max-width: 989px) {
+  .chic-shop-mega__content {
+    display: none;
+  }
+
+  .header-wrapper {
+    backdrop-filter: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .featured-collection .collection {
+    padding-top: 4.2rem;
+    padding-bottom: 4.2rem;
+  }
+
+  .collection__title .title {
+    font-size: clamp(3.4rem, 12vw, 5rem);
+  }
+
+  .chic-card-wishlist {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
 
