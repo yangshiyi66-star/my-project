@@ -12,7 +12,14 @@
       {% endif %}
 
       {% if section.settings.heading != blank %}
-        <h1 class="chic-hero__heading">{{ section.settings.heading | escape }}</h1>
+        <h1 class="chic-hero__heading">
+          {% if section.settings.heading == 'Your dawn, your way.' %}
+            <span>Your dawn,</span>
+            <span>your way.</span>
+          {% else %}
+            {{ section.settings.heading | escape }}
+          {% endif %}
+        </h1>
       {% endif %}
 
       {% if section.settings.script_note != blank %}
@@ -125,8 +132,10 @@
   .chic-hero__inner {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-    gap: clamp(2.4rem, 4vw, 4.8rem);
+    width: 100%;
+    max-width: var(--page-width);
+    grid-template-columns: minmax(38rem, 0.9fr) minmax(42rem, 1.1fr);
+    gap: clamp(3.2rem, 5vw, 7.2rem);
     align-items: start;
   }
 
@@ -145,14 +154,21 @@
   }
 
   .chic-hero__heading {
-    max-width: 54rem;
+    max-width: 62rem;
     margin: 0 0 1.2rem;
     color: var(--chic-ink);
     font-family: var(--font-heading-family);
-    font-size: clamp(5.8rem, 8vw, 12rem);
+    font-size: clamp(5.8rem, 6.4vw, 9.8rem);
     font-weight: var(--chic-serif-weight);
     letter-spacing: 0;
-    line-height: 0.84;
+    line-height: 0.88;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .chic-hero__heading span {
+    display: block;
+    white-space: nowrap;
   }
 
   .chic-hero__subheading {
@@ -242,10 +258,13 @@
     margin: 0 0 1.2rem;
     color: var(--chic-cocoa);
     font-family: var(--font-heading-family);
-    font-size: clamp(3.8rem, 4vw, 5.8rem);
+    font-size: clamp(3.6rem, 3.25vw, 5.2rem);
     font-weight: var(--chic-serif-weight);
     letter-spacing: 0;
     line-height: 0.92;
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .chic-hero__panel--quote p {
