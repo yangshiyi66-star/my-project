@@ -1,7 +1,7 @@
 <section class="chic-page color-{{ section.settings.color_scheme }} gradient">
-  <div class="chic-hero full-bleed">
-    <div class="page-width chic-hero__inner">
-      <p class="chic-eyebrow">{{ page.handle | replace: '-', ' ' }}</p>
+  <div class="chic-page__masthead">
+    <div class="page-width">
+      <p class="chic-page__label">{{ page.title | escape }}</p>
       <h1 class="chic-heading">{{ page.title | escape }}</h1>
       <p class="chic-copy">
         {% case page.handle %}
@@ -144,6 +144,38 @@
 </section>
 
 {% stylesheet %}
+  .chic-page__masthead {
+    padding: clamp(3.2rem, 5vw, 6.4rem) 0 clamp(2.4rem, 4vw, 4.8rem);
+    border-bottom: 1px solid var(--chic-line);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 100%),
+      var(--chic-paper);
+  }
+
+  .chic-page__masthead .page-width {
+    display: grid;
+    justify-items: start;
+  }
+
+  .chic-page__label {
+    margin: 0 0 clamp(2.8rem, 4vw, 4.8rem);
+    color: var(--chic-merlot);
+    font-size: 1.05rem;
+    font-weight: var(--chic-button-weight);
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .chic-page__masthead .chic-heading {
+    max-width: 72rem;
+  }
+
+  .chic-page__masthead .chic-copy {
+    max-width: 62rem;
+    margin: 1.6rem 0 0;
+  }
+
   .chic-page__body {
     padding-top: 5.6rem;
     padding-bottom: 5.6rem;
