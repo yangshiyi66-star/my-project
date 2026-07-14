@@ -1,22 +1,49 @@
-<section class="chic-page color-{{ section.settings.color_scheme }} gradient">
-  <div class="chic-page__masthead">
-    <div class="page-width">
-      <p class="chic-page__label">{{ page.title | escape }}</p>
-      <h1 class="chic-heading">{{ page.title | escape }}</h1>
-      <p class="chic-copy">
-        {% case page.handle %}
-          {% when 'how-to-apply' %}
-            Three application routes for press-on nails: glue, adhesive tabs, and a combined method for stronger wear.
-          {% when 'faq' %}
-            Quick answers for sizing, application, removal, kits, shipping, and VIP signup.
-          {% when 'about-us' %}
-            Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up.
-          {% when 'rewards' %}
-            A front-end loyalty hub for account creation, points, rewards, referrals, and early access.
-          {% else %}
-            {{ page.content | strip_html | truncate: 180 }}
-        {% endcase %}
-      </p>
+{%- liquid
+  assign is_about_page = false
+  if page.handle == 'about-us'
+    assign is_about_page = true
+  endif
+
+  assign about_eyebrow = section.settings.about_eyebrow | default: 'Our Story'
+  assign about_heading = section.settings.about_heading | default: page.title
+  assign about_intro = section.settings.about_intro | default: 'Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up.'
+-%}
+
+<section
+  class="chic-page{% if is_about_page %} chic-page--about{% endif %} color-{{ section.settings.color_scheme }} gradient"
+  {% if is_about_page %}
+    style="
+      --chic-about-background: {{ section.settings.about_background }};
+      --chic-about-text: {{ section.settings.about_text_color }};
+      --chic-about-spacing: {{ section.settings.about_spacing }}px;
+      --chic-about-align: {{ section.settings.about_alignment }};
+    "
+  {% endif %}
+>
+  <div class="chic-page__masthead{% if is_about_page %} chic-page__masthead--about{% endif %}">
+    <div class="page-width{% if is_about_page %} chic-page__about-hero{% endif %}">
+      {% if is_about_page %}
+        <div>
+          <p class="chic-page__label">{{ about_eyebrow | escape }}</p>
+          <h1 class="chic-heading">{{ about_heading | escape }}</h1>
+        </div>
+        <p class="chic-copy">{{ about_intro | escape }}</p>
+      {% else %}
+        <p class="chic-page__label">{{ page.title | escape }}</p>
+        <h1 class="chic-heading">{{ page.title | escape }}</h1>
+        <p class="chic-copy">
+          {% case page.handle %}
+            {% when 'how-to-apply' %}
+              Three application routes for press-on nails: glue, adhesive tabs, and a combined method for stronger wear.
+            {% when 'faq' %}
+              Quick answers for sizing, application, removal, kits, shipping, and VIP signup.
+            {% when 'rewards' %}
+              A front-end loyalty hub for account creation, points, rewards, referrals, and early access.
+            {% else %}
+              {{ page.content | strip_html | truncate: 180 }}
+          {% endcase %}
+        </p>
+      {% endif %}
     </div>
   </div>
 
@@ -104,14 +131,24 @@
         </div>
 
       {% when 'about-us' %}
-        <article class="chic-page__about-copy">
-          <h2>For You</h2>
-          <p>Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up.</p>
-          <p>Zora means dawn - and that's the feeling we're after: the small, daily thrill of a fresh start at your fingertips. Not a salon appointment you have to schedule your life around. Not stiff plastic that screams "fake." Just a few minutes, and hands that finally look the way you feel.</p>
-          <p>We make ours from soft jelly gel - hand-layered, cured, glassy, and flexible - so it moves with you and reads as real. Wear it to type, to create, to hold someone's hand, to take up space.</p>
-          <p>Because your hands are the first thing the world sees you do something with. Make them yours.</p>
-          <p>Your dawn, your way.</p>
-        </article>
+        <div class="chic-page__about-layout">
+          <aside class="chic-page__about-aside">
+            <span class="chic-page__about-aside-label">{{ section.settings.about_aside_label | escape }}</span>
+            <span class="chic-page__about-aside-rule" aria-hidden="true"></span>
+            <p class="chic-page__about-script">{{ section.settings.about_script | escape | newline_to_br }}</p>
+          </aside>
+
+          <article class="chic-page__about-copy">
+            <p class="chic-page__about-lead">{{ section.settings.about_intro | escape }}</p>
+            <p>{{ section.settings.about_body_1 | escape }}</p>
+            <p>{{ section.settings.about_body_2 | escape }}</p>
+            <blockquote class="chic-page__about-quote">{{ section.settings.about_pull_quote | escape }}</blockquote>
+            <p class="chic-page__about-closing">
+              <span aria-hidden="true"></span>
+              <em>{{ section.settings.about_closing_line | escape }}</em>
+            </p>
+          </article>
+        </div>
 
       {% when 'rewards' %}
         <div class="chic-grid chic-grid--4 chic-page__icons">
@@ -164,6 +201,45 @@
   .chic-page__masthead .chic-copy {
     max-width: 62rem;
     margin: 1.6rem 0 0;
+  }
+
+  .chic-page--about {
+    color: var(--chic-about-text, var(--chic-ink));
+    background:
+      radial-gradient(circle at 88% 0%, rgba(234, 193, 178, 0.16), transparent 22%),
+      linear-gradient(180deg, var(--chic-about-background, var(--chic-paper)), var(--chic-white) 48%, var(--chic-paper) 100%);
+  }
+
+  .chic-page__masthead--about {
+    padding: clamp(5.4rem, 7vw, 8.8rem) 0 clamp(4.2rem, 5.8vw, 6.8rem);
+    background:
+      radial-gradient(circle at 82% 12%, rgba(176, 120, 128, 0.11), transparent 24%),
+      linear-gradient(180deg, rgba(255, 253, 252, 0.54), transparent 100%);
+  }
+
+  .chic-page__about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(32rem, 1.18fr);
+    gap: clamp(3.6rem, 7vw, 8rem);
+    align-items: end;
+  }
+
+  .chic-page__masthead--about .chic-page__label {
+    margin-bottom: clamp(1.4rem, 2vw, 2rem);
+  }
+
+  .chic-page__masthead--about .chic-heading {
+    max-width: 58rem;
+    font-size: clamp(5.8rem, 8vw, 10.4rem);
+    line-height: 0.86;
+  }
+
+  .chic-page__masthead--about .chic-copy {
+    max-width: 52rem;
+    margin: 0 0 0.6rem;
+    color: var(--chic-muted);
+    font-size: clamp(1.55rem, 1.3vw, 1.75rem);
+    line-height: 1.75;
   }
 
   .chic-page__body {
@@ -252,30 +328,113 @@
     text-align: left;
   }
 
-  .chic-page__about-copy {
-    max-width: 104rem;
-    margin: 0 auto;
-    color: var(--chic-ink);
+  .chic-page--about .chic-page__body {
+    padding-top: var(--chic-about-spacing, 88px);
+    padding-bottom: clamp(7rem, 9vw, 11rem);
   }
 
-  .chic-page__about-copy h2 {
-    margin: 0 0 clamp(3.2rem, 4vw, 5.2rem);
-    font-family: var(--font-body-family);
-    font-size: clamp(1.8rem, 1.4vw, 2.2rem);
-    font-weight: 700;
-    letter-spacing: 0.02em;
+  .chic-page__about-layout {
+    display: grid;
+    grid-template-columns: minmax(18rem, 24rem) minmax(0, 1fr);
+    gap: clamp(4rem, 6vw, 7.2rem);
+    align-items: start;
+    max-width: 108rem;
+    margin: 0 auto;
+  }
+
+  .chic-page__about-aside {
+    position: sticky;
+    top: 11rem;
+    color: var(--chic-about-text, var(--chic-ink));
+  }
+
+  .chic-page__about-aside-label {
+    display: block;
+    margin-bottom: 1.6rem;
+    color: var(--chic-merlot);
+    font-size: 1.05rem;
+    font-weight: var(--chic-button-weight);
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .chic-page__about-aside-rule {
+    display: block;
+    width: 4.2rem;
+    height: 0.1rem;
+    margin-bottom: 2.2rem;
+    background: var(--chic-cocoa);
+  }
+
+  .chic-page__about-script {
+    max-width: 20rem;
+    margin: 0;
+    color: var(--chic-cocoa);
+    font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+    font-size: clamp(2.8rem, 2.8vw, 3.4rem);
+    line-height: 1.05;
+  }
+
+  .chic-page__about-copy {
+    max-width: 78rem;
+    color: var(--chic-about-text, var(--chic-ink));
+    text-align: var(--chic-about-align, left);
+  }
+
+  .chic-page__about-lead {
+    margin-top: 0;
+    color: var(--chic-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(3rem, 3.2vw, 4.8rem);
+    font-weight: var(--chic-serif-weight);
+    letter-spacing: 0;
+    line-height: 1.08;
   }
 
   .chic-page__about-copy p {
-    max-width: 98rem;
-    margin: 0 0 clamp(3.2rem, 4vw, 5.2rem);
-    color: var(--chic-ink);
-    font-size: clamp(1.55rem, 1.25vw, 1.95rem);
-    line-height: 1.45;
+    max-width: 78rem;
+    margin: 0 0 clamp(2.4rem, 3vw, 3.2rem);
+    color: var(--chic-muted);
+    font-size: clamp(1.55rem, 1.2vw, 1.75rem);
+    line-height: 1.85;
   }
 
   .chic-page__about-copy p:last-child {
     margin-bottom: 0;
+  }
+
+  .chic-page__about-quote {
+    margin: clamp(4.2rem, 5vw, 5.8rem) 0;
+    padding: clamp(2.6rem, 3vw, 3.8rem) 0 clamp(2.6rem, 3vw, 3.8rem) clamp(2.4rem, 3vw, 3.6rem);
+    border-left: 1px solid var(--chic-cocoa);
+    color: var(--chic-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(3rem, 3.4vw, 4.8rem);
+    font-weight: var(--chic-serif-weight);
+    letter-spacing: 0;
+    line-height: 1.08;
+  }
+
+  .chic-page__about-closing {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: clamp(4.2rem, 5vw, 5.8rem);
+  }
+
+  .chic-page__about-closing span {
+    flex: 0 0 7.2rem;
+    height: 0.1rem;
+    background: rgba(91, 44, 47, 0.18);
+  }
+
+  .chic-page__about-closing em {
+    color: var(--chic-merlot);
+    font-family: "Snell Roundhand", "Apple Chancery", "Segoe Script", cursive;
+    font-size: clamp(2.9rem, 3vw, 3.6rem);
+    font-style: normal;
+    line-height: 1.1;
   }
 
   .chic-page__reward {
@@ -298,6 +457,40 @@
     .chic-page__faq-layout aside {
       position: static;
     }
+
+    .chic-page__about-hero,
+    .chic-page__about-layout {
+      grid-template-columns: 1fr;
+      gap: 3.4rem;
+    }
+
+    .chic-page__masthead--about .chic-heading {
+      font-size: clamp(5.2rem, 17vw, 6.8rem);
+    }
+
+    .chic-page__about-aside {
+      position: static;
+    }
+
+    .chic-page__about-script {
+      max-width: none;
+      font-size: 2.8rem;
+    }
+
+    .chic-page__about-quote {
+      padding-left: 2rem;
+      font-size: clamp(2.8rem, 10vw, 3.6rem);
+    }
+
+    .chic-page__about-closing {
+      align-items: flex-start;
+      gap: 1.4rem;
+    }
+
+    .chic-page__about-closing span {
+      flex-basis: 4.8rem;
+      margin-top: 1.5rem;
+    }
   }
 {% endstylesheet %}
 
@@ -312,6 +505,102 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "About Us page"
+    },
+    {
+      "type": "text",
+      "id": "about_eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "about_heading",
+      "label": "Heading",
+      "default": "About Us"
+    },
+    {
+      "type": "textarea",
+      "id": "about_intro",
+      "label": "Intro",
+      "default": "Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up."
+    },
+    {
+      "type": "text",
+      "id": "about_aside_label",
+      "label": "Side label",
+      "default": "For You"
+    },
+    {
+      "type": "textarea",
+      "id": "about_script",
+      "label": "Script accent",
+      "default": "made for\nevery version\nof you."
+    },
+    {
+      "type": "textarea",
+      "id": "about_body_1",
+      "label": "Body text 1",
+      "default": "Zora means dawn - and that's the feeling we're after: the small, daily thrill of a fresh start at your fingertips. Not a salon appointment you have to schedule your life around. Not stiff plastic that screams \"fake.\" Just a few minutes, and hands that finally look the way you feel."
+    },
+    {
+      "type": "textarea",
+      "id": "about_body_2",
+      "label": "Body text 2",
+      "default": "We make ours from soft jelly gel - hand-layered, cured, glassy, and flexible - so it moves with you and reads as real. Wear it to type, to create, to hold someone's hand, to take up space."
+    },
+    {
+      "type": "textarea",
+      "id": "about_pull_quote",
+      "label": "Pull quote",
+      "default": "Because your hands are the first thing the world sees you do something with. Make them yours."
+    },
+    {
+      "type": "text",
+      "id": "about_closing_line",
+      "label": "Closing line",
+      "default": "Your dawn, your way."
+    },
+    {
+      "type": "color",
+      "id": "about_background",
+      "label": "Section background",
+      "default": "#FBF8F4"
+    },
+    {
+      "type": "color",
+      "id": "about_text_color",
+      "label": "Text color",
+      "default": "#352522"
+    },
+    {
+      "type": "range",
+      "id": "about_spacing",
+      "min": 56,
+      "max": 128,
+      "step": 4,
+      "unit": "px",
+      "label": "Body top spacing",
+      "default": 88
+    },
+    {
+      "type": "select",
+      "id": "about_alignment",
+      "label": "Body alignment",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ]
     }
   ],
   "presets": [
