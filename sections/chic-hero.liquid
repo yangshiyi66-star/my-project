@@ -1,327 +1,106 @@
 {%- liquid
   assign hero_image = section.settings.image
   assign button_link = section.settings.button_link | default: routes.all_products_collection_url
-  assign secondary_link = section.settings.secondary_button_link | default: routes.all_products_collection_url
 -%}
 
-<section class="chic-hero chic-hero--{{ section.settings.height }}" aria-label="{{ section.settings.heading | escape }}">
-  <div class="page-width chic-hero__inner">
-    <div class="chic-hero__copy">
-      {% if section.settings.eyebrow != blank %}
-        <p class="chic-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-      {% endif %}
-
-      {% if section.settings.heading != blank %}
-        <h1 class="chic-hero__heading">
-          {% if section.settings.heading == 'Your dawn, your way.' %}
-            <span>Your dawn,</span>
-            <span>your way.</span>
-          {% else %}
-            {{ section.settings.heading | escape }}
-          {% endif %}
-        </h1>
-      {% endif %}
-
-      {% if section.settings.script_note != blank %}
-        <p class="chic-script-note">{{ section.settings.script_note | escape }}</p>
-      {% endif %}
-
-      {% if section.settings.subheading != blank %}
-        <div class="chic-hero__subheading rte">{{ section.settings.subheading }}</div>
-      {% endif %}
-
-      <div class="chic-hero__actions">
-        {% if section.settings.button_label != blank %}
-          <a class="button chic-hero__button" href="{{ button_link }}">
-            {{ section.settings.button_label | escape }}
-          </a>
-        {% endif %}
-        {% if section.settings.secondary_button_label != blank %}
-          <a class="button button--secondary chic-hero__button-secondary" href="{{ secondary_link }}">
-            {{ section.settings.secondary_button_label | escape }}
-          </a>
-        {% endif %}
-      </div>
-
-      <dl class="chic-hero__meta">
-        <div>
-          <dt>{{ section.settings.meta_1_heading | escape }}</dt>
-          <dd>{{ section.settings.meta_1_text | escape }}</dd>
-        </div>
-        <div>
-          <dt>{{ section.settings.meta_2_heading | escape }}</dt>
-          <dd>{{ section.settings.meta_2_text | escape }}</dd>
-        </div>
-        <div>
-          <dt>{{ section.settings.meta_3_heading | escape }}</dt>
-          <dd>{{ section.settings.meta_3_text | escape }}</dd>
-        </div>
-      </dl>
-    </div>
-
-    <div class="chic-hero__board" aria-label="{{ section.settings.visual_label | escape }}">
-      <div class="chic-hero__panel chic-hero__panel--image">
-        {% if hero_image != blank %}
-          <img
-            src="{{ hero_image | image_url: width: 1400 }}"
-            srcset="
-              {{ hero_image | image_url: width: 640 }} 640w,
-              {{ hero_image | image_url: width: 980 }} 980w,
-              {{ hero_image | image_url: width: 1400 }} 1400w
-            "
-            sizes="(min-width: 990px) 54vw, calc(100vw - 48px)"
-            alt="{{ section.settings.visual_label | escape }}"
-            width="1400"
-            height="920"
-            loading="eager"
-            fetchpriority="high"
-          >
-        {% else %}
-          <img
-            src="{{ 'zora-hero-banner.png' | asset_url }}"
-            alt="{{ section.settings.visual_label | escape }}"
-            width="1672"
-            height="941"
-            loading="eager"
-            fetchpriority="high"
-          >
-        {% endif %}
-      </div>
-
-      <div class="chic-hero__panel chic-hero__panel--kit">
-        <span>{{ section.settings.kit_1 | escape }}</span>
-        <span>{{ section.settings.kit_2 | escape }}</span>
-        <span>{{ section.settings.kit_3 | escape }}</span>
-      </div>
-    </div>
+<section class="chic-hero chic-hero--{{ section.settings.height }}" aria-label="{{ section.settings.visual_label | default: section.settings.heading | escape }}">
+  <div class="chic-hero__media">
+    {% if hero_image != blank %}
+      <img
+        src="{{ hero_image | image_url: width: 2400 }}"
+        srcset="
+          {{ hero_image | image_url: width: 900 }} 900w,
+          {{ hero_image | image_url: width: 1400 }} 1400w,
+          {{ hero_image | image_url: width: 2000 }} 2000w,
+          {{ hero_image | image_url: width: 2400 }} 2400w
+        "
+        sizes="100vw"
+        alt="{{ section.settings.visual_label | escape }}"
+        width="2400"
+        height="1350"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {% else %}
+      <img
+        src="{{ 'zora-hero-banner.png' | asset_url }}"
+        alt="{{ section.settings.visual_label | escape }}"
+        width="1672"
+        height="941"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {% endif %}
   </div>
+
+  {% if section.settings.button_label != blank %}
+    <div class="page-width chic-hero__cta">
+      <a class="button chic-hero__button" href="{{ button_link }}">
+        {{ section.settings.button_label | escape }}
+      </a>
+    </div>
+  {% endif %}
 </section>
 
 {% stylesheet %}
   .chic-hero {
     position: relative;
     overflow: hidden;
-    padding: clamp(4.8rem, 6vw, 7.2rem) 0 clamp(5.6rem, 7vw, 8.4rem);
-    color: var(--chic-ink);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.18), transparent 100%),
-      linear-gradient(135deg, var(--chic-warm-cream) 0%, var(--chic-paper) 48%, var(--chic-paper-2) 100%);
+    background: var(--chic-paper);
   }
 
-  .chic-hero::before {
-    content: "";
-    position: absolute;
-    inset: auto -8rem -16rem auto;
-    width: 34rem;
-    height: 34rem;
-    border: 1px solid var(--chic-line);
-    border-radius: 50%;
-    background: rgba(255, 253, 252, 0.42);
-    filter: blur(0.2px);
-    pointer-events: none;
-  }
-
-  .chic-hero__inner {
+  .chic-hero__media {
     position: relative;
-    display: grid;
-    width: 100%;
-    max-width: var(--page-width);
-    grid-template-columns: minmax(39rem, 0.82fr) minmax(52rem, 1.18fr);
-    gap: clamp(3.6rem, 5.5vw, 8.4rem);
-    align-items: center;
+    min-height: clamp(52rem, 56vw, 86rem);
   }
 
-  .chic-hero__copy {
-    position: relative;
-    z-index: 2;
-  }
-
-  .chic-hero__eyebrow,
-  .chic-hero__mini {
-    margin: 0 0 1rem;
-    color: var(--chic-merlot);
-    font-size: 1rem;
-    font-weight: var(--chic-button-weight);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-
-  .chic-hero__heading {
-    max-width: 62rem;
-    margin: 0 0 1.2rem;
-    color: var(--chic-ink);
-    font-family: var(--font-heading-family);
-    font-size: clamp(6rem, 6.1vw, 9.2rem);
-    font-weight: var(--chic-serif-weight);
-    letter-spacing: 0;
-    line-height: 0.88;
-    overflow-wrap: normal;
-    word-break: normal;
-  }
-
-  .chic-hero__heading span {
+  .chic-hero__media img {
     display: block;
-    white-space: nowrap;
-  }
-
-  .chic-hero__subheading {
-    max-width: 40rem;
-    margin: 0 0 2.4rem;
-    color: var(--chic-muted);
-    font-size: 1.58rem;
-    line-height: 1.58;
-  }
-
-  .chic-hero__actions {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1.2rem;
-    align-items: center;
-  }
-
-  .chic-hero__actions .button {
-    min-width: min(22rem, 100%);
-    padding-right: 2.4rem;
-    padding-left: 2.4rem;
-  }
-
-  .chic-hero__meta {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.6rem;
-    max-width: 45rem;
-    margin: 3.4rem 0 0;
-    padding-top: 2rem;
-    border-top: 1px solid var(--chic-line);
-  }
-
-  .chic-hero__meta dt {
-    color: var(--chic-cocoa);
-    font-family: var(--font-heading-family);
-    font-size: 2.2rem;
-    line-height: 0.98;
-  }
-
-  .chic-hero__meta dd {
-    margin: 0.5rem 0 0;
-    color: var(--chic-muted);
-    font-size: 1.05rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .chic-hero__board {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(40rem, 52rem) 11.8rem;
-    gap: 1.4rem;
-    min-height: 0;
-  }
-
-  .chic-hero__panel {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--chic-line-strong);
-    border-radius: var(--chic-radius-md);
-    background: rgba(255, 253, 252, 0.78);
-    box-shadow: var(--chic-shadow-soft);
-  }
-
-  .chic-hero__panel::after {
-    content: "";
-    position: absolute;
-    inset: 1rem;
-    border: 1px solid rgba(91, 44, 47, 0.07);
-    border-radius: calc(var(--chic-radius-md) - 0.3rem);
-    pointer-events: none;
-  }
-
-  .chic-hero__panel--image {
-    min-height: 40rem;
-    background: var(--chic-paper-2);
-  }
-
-  .chic-hero__panel--image img {
     width: 100%;
     height: 100%;
+    min-height: inherit;
     object-fit: cover;
-    object-position: 82% center;
-    transform: scale(1.18);
+    object-position: center;
   }
 
-  .chic-hero__panel--kit {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
-    padding: 0;
+  .chic-hero__cta {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: clamp(8rem, 9vw, 14rem);
+    left: 0;
+    pointer-events: none;
+  }
+
+  .chic-hero__button.button {
+    min-width: 20rem;
+    border-color: var(--chic-cocoa);
     background: var(--chic-cocoa);
+    color: var(--chic-white);
+    pointer-events: auto;
   }
 
-  .chic-hero__panel--kit span {
-    display: grid;
-    place-items: center;
-    min-height: 100%;
-    padding: 1.6rem;
-    color: var(--chic-cocoa);
-    background: rgba(255, 253, 252, 0.92);
-    font-size: 1.1rem;
-    font-weight: var(--chic-button-weight);
-    letter-spacing: 0.16em;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  @media screen and (max-width: 989px) {
-    .chic-hero__inner {
-      grid-template-columns: 1fr;
-    }
-
-    .chic-hero__board {
-      grid-template-rows: minmax(34rem, 48rem) auto;
-      min-height: 0;
+  @media screen and (min-width: 990px) {
+    .chic-hero__button.button {
+      margin-left: clamp(0rem, 2vw, 2.4rem);
     }
   }
 
   @media screen and (max-width: 749px) {
-    .chic-hero {
-      padding: 2.8rem 0 3.8rem;
+    .chic-hero__media {
+      min-height: 48rem;
     }
 
-    .chic-hero__heading {
-      font-size: clamp(5.2rem, 18vw, 7.4rem);
+    .chic-hero__media img {
+      object-position: 58% center;
     }
 
-    .chic-hero__meta,
-    .chic-hero__panel--kit {
-      grid-template-columns: 1fr;
+    .chic-hero__cta {
+      bottom: 3.2rem;
     }
 
-    .chic-hero__panel--image,
-    .chic-hero__panel--kit {
-      grid-column: auto;
-      grid-row: auto;
-    }
-
-    .chic-hero__board {
-      grid-template-rows: minmax(28rem, 36rem) auto;
-    }
-
-    .chic-hero__panel--image {
-      min-height: 28rem;
-    }
-
-    .chic-hero__actions {
-      flex-wrap: wrap;
-    }
-
-    .chic-hero__actions .button {
-      min-width: 0;
+    .chic-hero__button.button {
       width: 100%;
-    }
-
-    .chic-hero__panel--image img {
-      object-position: 78% center;
-      transform: scale(1.1);
     }
   }
 {% endstylesheet %}
@@ -364,7 +143,7 @@
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Shop new arrivals"
+      "default": "SHOP NOW"
     },
     {
       "type": "url",
