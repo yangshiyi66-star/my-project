@@ -10,7 +10,7 @@
           {% when 'faq' %}
             Quick answers for sizing, application, removal, kits, shipping, and VIP signup.
           {% when 'about-us' %}
-            Chic Nail makes at-home manicures feel polished, fast, and flexible for real life.
+            Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up.
           {% when 'rewards' %}
             A front-end loyalty hub for account creation, points, rewards, referrals, and early access.
           {% else %}
@@ -104,24 +104,14 @@
         </div>
 
       {% when 'about-us' %}
-        <div class="chic-grid chic-grid--2">
-          <article class="chic-card chic-page__story">
-            <p class="chic-eyebrow">Our story</p>
-            <h2 class="chic-section-title">Beauty, on your time</h2>
-            <p class="chic-copy">Chic Nail focuses on press-on manicures that make everyday routines faster, easier, and more polished. The visual system leaves room for real product photography once final assets arrive.</p>
-          </article>
-          <article class="chic-card chic-page__story">
-            <p class="chic-eyebrow">What we make</p>
-            <h2 class="chic-section-title">Salon looks without the appointment</h2>
-            <p class="chic-copy">The storefront supports new arrivals, best sellers, seasonal series, Chinese-inspired custom drops, and later custom request forms.</p>
-          </article>
-        </div>
-        <div class="chic-grid chic-grid--4 chic-page__icons">
-          <details class="chic-card chic-icon-details" open><summary><span class="chic-icon">✓</span><strong>Easy</strong></summary><p>Simple application for home routines.</p></details>
-          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">★</span><strong>Polished</strong></summary><p>Designed to feel refined in photos and daily wear.</p></details>
-          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">↻</span><strong>Reusable</strong></summary><p>Reusable positioning for gentle removal and care.</p></details>
-          <details class="chic-card chic-icon-details"><summary><span class="chic-icon">新</span><strong>Series</strong></summary><p>Seasonal and custom collection areas.</p></details>
-        </div>
+        <article class="chic-page__about-copy">
+          <h2>For You</h2>
+          <p>Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up.</p>
+          <p>Zora means dawn - and that's the feeling we're after: the small, daily thrill of a fresh start at your fingertips. Not a salon appointment you have to schedule your life around. Not stiff plastic that screams "fake." Just a few minutes, and hands that finally look the way you feel.</p>
+          <p>We make ours from soft jelly gel - hand-layered, cured, glassy, and flexible - so it moves with you and reads as real. Wear it to type, to create, to hold someone's hand, to take up space.</p>
+          <p>Because your hands are the first thing the world sees you do something with. Make them yours.</p>
+          <p>Your dawn, your way.</p>
+        </article>
 
       {% when 'rewards' %}
         <div class="chic-grid chic-grid--4 chic-page__icons">
@@ -260,6 +250,32 @@
   .chic-page__story .chic-section-title,
   .chic-page__reward .chic-section-title {
     text-align: left;
+  }
+
+  .chic-page__about-copy {
+    max-width: 104rem;
+    margin: 0 auto;
+    color: var(--chic-ink);
+  }
+
+  .chic-page__about-copy h2 {
+    margin: 0 0 clamp(3.2rem, 4vw, 5.2rem);
+    font-family: var(--font-body-family);
+    font-size: clamp(1.8rem, 1.4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .chic-page__about-copy p {
+    max-width: 98rem;
+    margin: 0 0 clamp(3.2rem, 4vw, 5.2rem);
+    color: var(--chic-ink);
+    font-size: clamp(1.55rem, 1.25vw, 1.95rem);
+    line-height: 1.45;
+  }
+
+  .chic-page__about-copy p:last-child {
+    margin-bottom: 0;
   }
 
   .chic-page__reward {
