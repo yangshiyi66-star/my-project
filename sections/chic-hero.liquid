@@ -60,36 +60,28 @@
     </div>
 
     <div class="chic-hero__board" aria-label="{{ section.settings.visual_label | escape }}">
-      <div class="chic-hero__panel chic-hero__panel--quote">
-        <span class="chic-hero__mini">{{ section.settings.visual_kicker | escape }}</span>
-        <h2>{{ section.settings.visual_heading | escape }}</h2>
-        <p>{{ section.settings.visual_text | escape }}</p>
-        <span class="chic-script-note">{{ section.settings.visual_script | escape }}</span>
-      </div>
-
       <div class="chic-hero__panel chic-hero__panel--image">
-        <span class="chic-hero__mini">{{ section.settings.product_kicker | escape }}</span>
         {% if hero_image != blank %}
           <img
-            src="{{ hero_image | image_url: width: 980 }}"
+            src="{{ hero_image | image_url: width: 1400 }}"
             srcset="
-              {{ hero_image | image_url: width: 420 }} 420w,
-              {{ hero_image | image_url: width: 720 }} 720w,
-              {{ hero_image | image_url: width: 980 }} 980w
+              {{ hero_image | image_url: width: 640 }} 640w,
+              {{ hero_image | image_url: width: 980 }} 980w,
+              {{ hero_image | image_url: width: 1400 }} 1400w
             "
-            sizes="(min-width: 990px) 38vw, calc(100vw - 48px)"
+            sizes="(min-width: 990px) 54vw, calc(100vw - 48px)"
             alt="{{ section.settings.visual_label | escape }}"
-            width="980"
-            height="980"
+            width="1400"
+            height="920"
             loading="eager"
             fetchpriority="high"
           >
         {% else %}
           <img
-            src="{{ 'chic-hero.jpg' | asset_url }}"
+            src="{{ 'zora-hero-banner.png' | asset_url }}"
             alt="{{ section.settings.visual_label | escape }}"
-            width="1680"
-            height="700"
+            width="1672"
+            height="941"
             loading="eager"
             fetchpriority="high"
           >
@@ -109,7 +101,7 @@
   .chic-hero {
     position: relative;
     overflow: hidden;
-    padding: 3.2rem 0 4.8rem;
+    padding: clamp(4.8rem, 6vw, 7.2rem) 0 clamp(5.6rem, 7vw, 8.4rem);
     color: var(--chic-ink);
     background:
       linear-gradient(180deg, rgba(255,255,255,.18), transparent 100%),
@@ -134,13 +126,14 @@
     display: grid;
     width: 100%;
     max-width: var(--page-width);
-    grid-template-columns: minmax(38rem, 0.9fr) minmax(42rem, 1.1fr);
-    gap: clamp(3.2rem, 5vw, 7.2rem);
-    align-items: start;
+    grid-template-columns: minmax(39rem, 0.82fr) minmax(52rem, 1.18fr);
+    gap: clamp(3.6rem, 5.5vw, 8.4rem);
+    align-items: center;
   }
 
   .chic-hero__copy {
-    padding-top: clamp(1.6rem, 3vw, 3.2rem);
+    position: relative;
+    z-index: 2;
   }
 
   .chic-hero__eyebrow,
@@ -158,7 +151,7 @@
     margin: 0 0 1.2rem;
     color: var(--chic-ink);
     font-family: var(--font-heading-family);
-    font-size: clamp(5.8rem, 6.4vw, 9.8rem);
+    font-size: clamp(6rem, 6.1vw, 9.2rem);
     font-weight: var(--chic-serif-weight);
     letter-spacing: 0;
     line-height: 0.88;
@@ -181,9 +174,15 @@
 
   .chic-hero__actions {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1.2rem;
     align-items: center;
+  }
+
+  .chic-hero__actions .button {
+    min-width: min(22rem, 100%);
+    padding-right: 2.4rem;
+    padding-left: 2.4rem;
   }
 
   .chic-hero__meta {
@@ -213,10 +212,10 @@
 
   .chic-hero__board {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    grid-template-rows: 22rem 24rem 12rem;
-    gap: 1.6rem;
-    min-height: 58rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(40rem, 52rem) 11.8rem;
+    gap: 1.4rem;
+    min-height: 0;
   }
 
   .chic-hero__panel {
@@ -237,68 +236,20 @@
     pointer-events: none;
   }
 
-  .chic-hero__panel--quote {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2.8rem;
-    background:
-      linear-gradient(180deg, rgba(246, 239, 230, 0.82), rgba(255, 253, 252, 0.78)),
-      radial-gradient(circle at 16% 20%, rgba(234, 193, 178, 0.42), transparent 24%);
-  }
-
-  .chic-hero__panel--quote .chic-hero__mini {
-    margin-bottom: auto;
-  }
-
-  .chic-hero__panel--quote h2 {
-    max-width: 34rem;
-    margin: 0 0 1.2rem;
-    color: var(--chic-cocoa);
-    font-family: var(--font-heading-family);
-    font-size: clamp(3.6rem, 3.25vw, 5.2rem);
-    font-weight: var(--chic-serif-weight);
-    letter-spacing: 0;
-    line-height: 0.92;
-    hyphens: none;
-    overflow-wrap: normal;
-    word-break: normal;
-  }
-
-  .chic-hero__panel--quote p {
-    max-width: 28rem;
-    margin: 0;
-    color: var(--chic-muted);
-    font-size: 1.4rem;
-    line-height: 1.55;
-  }
-
   .chic-hero__panel--image {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2.2rem 2rem;
-    background:
-      radial-gradient(circle at 72% 16%, rgba(255,255,255,.92) 0 8%, transparent 8.4%),
-      linear-gradient(160deg, rgba(255,255,255,.88), rgba(239,231,222,.9));
+    min-height: 40rem;
+    background: var(--chic-paper-2);
   }
 
   .chic-hero__panel--image img {
     width: 100%;
     height: 100%;
-    max-height: 39rem;
     object-fit: cover;
-    object-position: center;
-    border-radius: var(--chic-radius-sm);
+    object-position: 82% center;
+    transform: scale(1.18);
   }
 
   .chic-hero__panel--kit {
-    grid-column: 1 / -1;
-    grid-row: 3;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1px;
@@ -326,14 +277,14 @@
     }
 
     .chic-hero__board {
-      grid-template-rows: auto;
+      grid-template-rows: minmax(34rem, 48rem) auto;
       min-height: 0;
     }
   }
 
   @media screen and (max-width: 749px) {
     .chic-hero {
-      padding: 2.4rem 0 3.2rem;
+      padding: 2.8rem 0 3.8rem;
     }
 
     .chic-hero__heading {
@@ -341,24 +292,36 @@
     }
 
     .chic-hero__meta,
-    .chic-hero__board,
     .chic-hero__panel--kit {
       grid-template-columns: 1fr;
     }
 
-    .chic-hero__panel--quote,
     .chic-hero__panel--image,
     .chic-hero__panel--kit {
       grid-column: auto;
       grid-row: auto;
     }
 
-    .chic-hero__panel--quote {
-      min-height: 34rem;
+    .chic-hero__board {
+      grid-template-rows: minmax(28rem, 36rem) auto;
+    }
+
+    .chic-hero__panel--image {
+      min-height: 28rem;
+    }
+
+    .chic-hero__actions {
+      flex-wrap: wrap;
+    }
+
+    .chic-hero__actions .button {
+      min-width: 0;
+      width: 100%;
     }
 
     .chic-hero__panel--image img {
-      max-height: 30rem;
+      object-position: 78% center;
+      transform: scale(1.1);
     }
   }
 {% endstylesheet %}
