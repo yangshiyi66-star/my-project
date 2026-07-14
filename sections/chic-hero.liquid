@@ -51,7 +51,9 @@
 
   .chic-hero__media {
     position: relative;
-    min-height: clamp(52rem, 56vw, 86rem);
+    min-height: clamp(34rem, 36vw, 68rem);
+    max-height: 74rem;
+    aspect-ratio: 16 / 6.2;
   }
 
   .chic-hero__media img {
@@ -67,7 +69,7 @@
     position: absolute;
     z-index: 2;
     right: 0;
-    bottom: clamp(8rem, 9vw, 14rem);
+    bottom: clamp(4.8rem, 5.5vw, 9.2rem);
     left: 0;
     pointer-events: none;
   }
@@ -88,7 +90,8 @@
 
   @media screen and (max-width: 749px) {
     .chic-hero__media {
-      min-height: 48rem;
+      min-height: 38rem;
+      aspect-ratio: 4 / 3.6;
     }
 
     .chic-hero__media img {

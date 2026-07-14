@@ -295,26 +295,46 @@ h3,
 .collection__title.title-wrapper {
   justify-content: center;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.2rem;
 }
 
 .collection__title .title {
   width: 100%;
   margin-bottom: 0;
-  font-family: var(--font-heading-family);
-  font-size: clamp(3.2rem, 3.8vw, 5rem);
-  font-weight: var(--chic-serif-weight);
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  font-family: var(--font-body-family);
+  font-size: clamp(2.2rem, 2.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0.22em;
   text-align: center;
+  text-transform: uppercase;
 }
 
-.featured-collection .collection {
+.collection {
   overflow: hidden;
 }
 
-.featured-collection .product-grid {
-  row-gap: 3.2rem;
+#collection-new_arrivals,
+#collection-best_sellers {
+  padding-right: clamp(1.6rem, 1.9vw, 3.8rem);
+  padding-left: clamp(1.6rem, 1.9vw, 3.8rem);
+}
+
+#collection-new_arrivals .page-width,
+#collection-best_sellers .page-width,
+#collection-new_arrivals .page-width-desktop,
+#collection-best_sellers .page-width-desktop,
+#collection-new_arrivals .slider-mobile-gutter,
+#collection-best_sellers .slider-mobile-gutter {
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#collection-new_arrivals .product-grid,
+#collection-best_sellers .product-grid {
+  column-gap: clamp(1.8rem, 2.3vw, 4.4rem);
+  row-gap: clamp(3rem, 3.6vw, 5.2rem);
 }
 
 .card__heading,
@@ -324,27 +344,29 @@ h3,
 }
 
 .card__heading {
-  margin-top: 1.4rem;
+  margin-top: 1.2rem;
   font-weight: var(--chic-serif-weight);
+  text-align: center;
 }
 
 .card__heading .full-unstyled-link {
-  font-family: var(--font-heading-family);
-  font-size: clamp(1.9rem, 1.65vw, 2.5rem);
-  font-weight: var(--chic-serif-weight);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-family: var(--font-body-family);
+  font-size: clamp(1.35rem, 1vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
 }
 
 .card-information {
-  margin-top: 0.7rem;
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .card-information .price {
   color: var(--chic-ink);
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   font-weight: var(--chic-ui-weight);
-  letter-spacing: 0.09em;
+  letter-spacing: 0;
 }
 
 .card__inner {
@@ -360,19 +382,29 @@ h3,
 }
 
 .quick-add {
-  margin-top: 1.4rem;
+  margin-top: 1.2rem;
+  text-align: center;
 }
 
 .quick-add__submit {
-  min-height: 4.8rem;
-  border: 1px solid var(--chic-ink);
+  width: auto;
+  min-width: 15rem;
+  min-height: 3.2rem;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
   background: transparent;
   color: var(--chic-ink);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
 }
 
 .quick-add__submit:hover {
-  background: var(--chic-ink);
-  color: #fff;
+  background: transparent;
+  color: var(--chic-merlot);
+  box-shadow: none;
 }
 
 .collection__view-all {

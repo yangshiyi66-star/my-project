@@ -85,7 +85,7 @@
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": false,
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "view_all_style": "link",
         "color_scheme": "scheme-1",
@@ -113,7 +113,7 @@
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": false,
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "view_all_style": "link",
         "color_scheme": "scheme-2",
@@ -164,9 +164,9 @@
   },
   "order": [
     "chic_hero",
-    "zora_home_content",
     "new_arrivals",
     "best_sellers",
+    "zora_home_content",
     "chic_reviews",
     "chic_popup"
   ]
