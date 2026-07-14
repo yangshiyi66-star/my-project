@@ -38,41 +38,6 @@
         "height": "large"
       }
     },
-    "zora_home_content": {
-      "type": "chic-home-content",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "band_label": "Zora Nails brand highlights",
-        "band_item_1": "Salon-real finish",
-        "band_item_2": "Short wear or longer hold",
-        "band_item_3": "Soft dawn palette",
-        "band_item_4": "Application essentials",
-        "category_eyebrow": "Shop by shape",
-        "category_heading": "Choose the silhouette first.",
-        "category_text": "Six everyday nail shapes make browsing faster without separating shape and length into two decisions.",
-        "square_link": "shopify://collections/all",
-        "squoval_link": "shopify://collections/all",
-        "short_almond_link": "shopify://collections/all",
-        "long_almond_link": "shopify://collections/all",
-        "coffin_link": "shopify://collections/all",
-        "stiletto_link": "shopify://collections/all",
-        "story_eyebrow": "Brand story",
-        "story_heading": "A quieter way to get ready.",
-        "story_text": "Zora Nails is built around soft press-on sets, considered colors, and simple prep pieces that make an at-home manicure feel polished without feeling precious.",
-        "story_button": "SHOP THE EDIT",
-        "story_link": "shopify://collections/all",
-        "how_eyebrow": "How it works",
-        "how_heading": "Four small steps, salon-real nails.",
-        "step_1_title": "Prep",
-        "step_1_text": "Clean and dry nails with the prep pad before application.",
-        "step_2_title": "Size",
-        "step_2_text": "Match each press-on to your natural nail before removing adhesive backing.",
-        "step_3_title": "Press",
-        "step_3_text": "Apply tabs or glue, then press firmly from cuticle to tip.",
-        "step_4_title": "Go",
-        "step_4_text": "File lightly if needed and carry the look into your day."
-      }
-    },
     "new_arrivals": {
       "type": "featured-collection",
       "settings": {
@@ -166,7 +131,6 @@
     "chic_hero",
     "new_arrivals",
     "best_sellers",
-    "zora_home_content",
     "chic_reviews",
     "chic_popup"
   ]
