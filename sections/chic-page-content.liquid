@@ -4,7 +4,6 @@
     assign is_about_page = true
   endif
 
-  assign about_eyebrow = section.settings.about_eyebrow | default: 'Our Story'
   assign about_heading = section.settings.about_heading | default: page.title
   assign about_intro = section.settings.about_intro | default: 'Some mornings you wake up soft. Some mornings you wake up fire. Your nails should be able to keep up.'
 -%}
@@ -24,12 +23,10 @@
     <div class="page-width{% if is_about_page %} chic-page__about-hero{% endif %}">
       {% if is_about_page %}
         <div>
-          <p class="chic-page__label">{{ about_eyebrow | escape }}</p>
           <h1 class="chic-heading">{{ about_heading | escape }}</h1>
         </div>
         <p class="chic-copy">{{ about_intro | escape }}</p>
       {% else %}
-        <p class="chic-page__label">{{ page.title | escape }}</p>
         <h1 class="chic-heading">{{ page.title | escape }}</h1>
         <p class="chic-copy">
           {% case page.handle %}
@@ -184,16 +181,6 @@
     justify-items: start;
   }
 
-  .chic-page__label {
-    margin: 0 0 clamp(2.8rem, 4vw, 4.8rem);
-    color: var(--chic-merlot);
-    font-size: 1.05rem;
-    font-weight: var(--chic-button-weight);
-    letter-spacing: 0.18em;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
-
   .chic-page__masthead .chic-heading {
     max-width: 72rem;
   }
@@ -222,10 +209,6 @@
     grid-template-columns: minmax(0, 0.82fr) minmax(32rem, 1.18fr);
     gap: clamp(3.6rem, 7vw, 8rem);
     align-items: end;
-  }
-
-  .chic-page__masthead--about .chic-page__label {
-    margin-bottom: clamp(1.4rem, 2vw, 2rem);
   }
 
   .chic-page__masthead--about .chic-heading {
@@ -509,12 +492,6 @@
     {
       "type": "header",
       "content": "About Us page"
-    },
-    {
-      "type": "text",
-      "id": "about_eyebrow",
-      "label": "Eyebrow",
-      "default": "Our Story"
     },
     {
       "type": "text",
