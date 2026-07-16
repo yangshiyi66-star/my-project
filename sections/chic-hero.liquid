@@ -51,18 +51,23 @@
 
   .chic-hero__media {
     position: relative;
+    overflow: hidden;
     min-height: clamp(34rem, 36vw, 68rem);
     max-height: 74rem;
     aspect-ratio: 16 / 6.2;
   }
 
   .chic-hero__media img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: block;
     width: 100%;
-    height: 100%;
+    height: calc(100% + clamp(5.6rem, 4.6vw, 8.2rem));
     min-height: inherit;
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom;
   }
 
   .chic-hero__cta {
@@ -95,7 +100,8 @@
     }
 
     .chic-hero__media img {
-      object-position: 58% center;
+      height: calc(100% + 5.2rem);
+      object-position: 58% bottom;
     }
 
     .chic-hero__cta {
