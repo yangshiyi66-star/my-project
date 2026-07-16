@@ -18,6 +18,17 @@
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
+        assign option_name_downcase = option.name | downcase
+        assign option_values_downcase = option.values | join: ' ' | downcase
+        assign option_display_mode = ''
+        assign option_legend = option.name
+
+        if option_name_downcase contains 'color' or option_name_downcase contains 'colour'
+          assign option_display_mode = 'color'
+        elsif option_name_downcase contains 'shape' or option_values_downcase contains 'square' or option_values_downcase contains 'squoval' or option_values_downcase contains 'almond' or option_values_downcase contains 'coffin' or option_values_downcase contains 'stiletto'
+          assign option_display_mode = 'shape'
+          assign option_legend = 'Shape & Length'
+        endif
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
           if block.settings.picker_type == 'dropdown'
@@ -28,9 +39,9 @@
         endif
       -%}
       {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch">
+        <fieldset class="js product-form__input product-form__input--swatch{% if option_display_mode != blank %} product-form__input--zora-{{ option_display_mode }}{% endif %}">
           <legend class="form__label">
-            {{ option.name }}:
+            {{ option_legend }}:
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>
@@ -39,17 +50,24 @@
             product: product,
             option: option,
             block: block,
-            picker_type: picker_type
+            picker_type: picker_type,
+            option_display_mode: option_display_mode
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+        <fieldset class="js product-form__input product-form__input--pill{% if option_display_mode != blank %} product-form__input--zora-{{ option_display_mode }}{% endif %}">
+          <legend class="form__label">
+            {{ option_legend }}
+            {%- if option_display_mode != blank -%}
+              <span data-selected-value>{{ option.selected_value }}</span>
+            {%- endif -%}
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
             block: block,
-            picker_type: picker_type
+            picker_type: picker_type,
+            option_display_mode: option_display_mode
           %}
         </fieldset>
       {%- else -%}

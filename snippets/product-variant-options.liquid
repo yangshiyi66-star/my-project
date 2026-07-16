@@ -6,6 +6,7 @@
   - option: {Object} current product_option object.
   - block: {Object} block object.
   - picker_type: {String} type of picker to dispay
+  - option_display_mode: {String} visual treatment for special option groups
 
 
   Usage:
@@ -17,7 +18,8 @@
   %}
 {% endcomment %}
 {%- liquid
-  assign product_form_id = 'product-form-' | append: section.id
+    assign product_form_id = 'product-form-' | append: section.id
+    assign option_display_mode = option_display_mode | default: ''
 -%}
 
 {%- for value in option.values -%}
@@ -59,6 +61,7 @@
   {%- endcapture -%}
 
   {% assign escaped_value = value | escape %}
+  {% assign value_handle = value | handleize %}
 
   {%- if picker_type == 'swatch' -%}
     {%- capture help_text -%}
@@ -95,7 +98,17 @@
       {{ input_dataset }}
     >
     <label for="{{ input_id }}">
-      {{ value -}}
+      {%- if option_display_mode == 'shape' -%}
+        <span class="zora-variant-shape zora-variant-shape--{{ value_handle }}" aria-hidden="true">
+          <span></span>
+        </span>
+        <span class="zora-variant-label">{{ value }}</span>
+      {%- elsif option_display_mode == 'color' -%}
+        <span class="zora-variant-color zora-variant-color--{{ value_handle }}" aria-hidden="true"></span>
+        <span class="zora-variant-label">{{ value }}</span>
+      {%- else -%}
+        {{ value -}}
+      {%- endif -%}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
